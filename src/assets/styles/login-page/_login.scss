@@ -8,7 +8,7 @@
 .login {
   height: 100%;
   max-width: 60%;
-  max-height: 90%;
+  max-height: 70%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -20,4 +20,14 @@
   font-size: 60px;
   font-weight: 600;
   margin-bottom: 20px;
+}
+
+.create-account {
+    color: white;
+    margin-top: 50px;
+}
+
+.create-account span {
+    text-decoration: underline;
+    cursor: pointer;
 }
