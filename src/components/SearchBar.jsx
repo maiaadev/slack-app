@@ -1,12 +1,7 @@
 import React from 'react';
 
 function SearchBar() {
-  return (
-    <input
-      type='text'
-      placeholder="<i class='fa-solid fa-magnifying-glass'></i> Search"
-    />
-  );
+  return <input className='search' type='text' placeholder='Search Channel' />;
 }
 
 export default SearchBar;
