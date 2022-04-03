@@ -1,10 +1,12 @@
 import '../src/assets/styles/output.css'
-import Nav from "./pages/Nav";
+import LoginPage from './pages/LoginPage'
+import Slack from './pages/Slack'
 
 function App() {
   return (
     <div className="App">
-      <Nav/>
+      {/* <Slack/> */}
+      <LoginPage/>
     </div>
   );
 }
