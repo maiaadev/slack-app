@@ -1,22 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { GetChannel, LogIn } from '../../api/Fetch';
+import { useNavigate } from 'react-router-dom';
+import UseContext from '../../context/UseContext';
 
 function Form() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const { setHeader, setUser } = useContext(UseContext);
+  const navigate = useNavigate();
 
-  const logIn = (e) => {
+  const logIn = async (e) => {
     e.preventDefault();
 
-    if (email !== '' && password !== '') {
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    const [headers, userdata] = await LogIn(data);
+
+    if (userdata == 401) {
+      setErrorMessage(headers);
+      setIsLoggedIn(false);
+    } else {
+      // setHeader(headers);
+      setUser(userdata);
+      localStorage.setItem('user', JSON.stringify(userdata));
+      localStorage.setItem('header', JSON.stringify(headers));
+      localStorage.setItem('channels', JSON.stringify(await GetChannel()));
       setIsLoggedIn(true);
       setEmail('');
       setPassword('');
+      navigate('/slack');
     }
   };
 
   return (
     <form onSubmit={logIn} className='form'>
+      {errorMessage && <div className='error-message'>{errorMessage}</div>}
       <input
         type='email'
         name='email'
