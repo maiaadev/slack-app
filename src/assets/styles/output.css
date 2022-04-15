@@ -14,6 +14,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  overflow: hidden;
 }
 
 .start-page {
@@ -412,5 +413,199 @@ body {
 .avatar:hover {
   color: white;
   cursor: pointer;
+}
+
+.slack-main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  background-color: #4a1051;
+  color: white;
+}
+
+.sidebar-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 0.2px solid #7a2f82;
+  height: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 20px;
+}
+
+.workspace {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.new-message {
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.channels,
+.direct-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.channel-name,
+.add-channel,
+.dm,
+.channel-list {
+  margin-top: 20px;
+  padding-left: 10px;
+  height: 25px;
+}
+
+.add-channel {
+  margin-top: 10px;
+  background-color: #4a1051;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-channel::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.add-channel:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.add-channel::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.add-channel::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.add-channel:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.add-channel:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.add-channel:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.add-channel:focus::placeholder {
+  color: transparent;
+}
+
+.channel-name:hover,
+.dm:hover {
+  background-color: rgba(51, 9, 56, 0.8);
+}
+
+.channel-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+
+.channel-names {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 10px 50px 10px;
+}
+
+textarea {
+  height: 200px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  padding: 20px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+.send-button {
+  position: absolute;
+  bottom: 3%;
+  left: 96%;
+  font-size: 30px;
+  color: grey;
+  cursor: pointer;
+}
+
+.channel-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px;
+  font-size: 20px;
 }
 /*# sourceMappingURL=output.css.map */

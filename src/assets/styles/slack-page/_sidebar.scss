@@ -1,0 +1,87 @@
+.slack-main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  background-color: rgb(74, 16, 81);
+  color: white;
+}
+
+.sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.2px solid rgb(122, 47, 130);
+  height: 70px;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.workspace {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.new-message {
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.channels,
+.direct-message {
+  display: flex;
+  margin: 30px;
+  flex-direction: column;
+}
+
+.channel-name,
+.add-channel,
+.dm,
+.channel-list {
+  margin-top: 20px;
+  padding-left: 10px;
+  height: 25px;
+}
+
+.add-channel {
+  margin-top: 10px;
+  background-color: rgb(74, 16, 81);
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-channel::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.add-channel:focus::placeholder {
+  color: transparent;
+}
+
+.channel-name:hover,
+.dm:hover {
+  background-color: rgba(51, 9, 56, 0.8);
+}
+
+.channel-list {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+
+.channel-names {
+  height: 300px;
+  overflow-y: scroll;
+}

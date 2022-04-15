@@ -4,15 +4,23 @@ import CreateAccount from './pages/CreateAccount';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import SlackPage from './pages/SlackPage';
+import { useContext } from 'react';
+import UseContext from './context/UseContext';
+import Main from './components/slack-page/Main';
 
 function App() {
+  const { channels } = useContext(UseContext);
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/sign-in' element={<LoginPage />} />
         <Route path='/sign-up' element={<CreateAccount />} />
-        <Route path='/slack' element={<SlackPage/>}/>
+        <Route path='/slack' element={<SlackPage />}>
+          {channels.map((prop) => {
+            return <Route path={`${prop.name}`} element={<Main name={prop.name}/>} />;
+          })}
+        </Route>
       </Routes>
     </BrowserRouter>
   );
