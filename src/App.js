@@ -17,8 +17,8 @@ function App() {
         <Route path='/sign-in' element={<LoginPage />} />
         <Route path='/sign-up' element={<CreateAccount />} />
         <Route path='/slack' element={<SlackPage />}>
-          {channels.map((prop) => {
-            return <Route path={`${prop.name}`} element={<Main name={prop.name}/>} />;
+          {channels && channels.map((prop) => {
+            return <Route path={`${prop.name}`} key={prop.id} element={<Main name={prop.name} id={prop.id}/>} />;
           })}
         </Route>
       </Routes>

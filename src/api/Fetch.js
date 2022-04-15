@@ -24,22 +24,33 @@ async function LogIn(data) {
 }
 
 async function GetChannel() {
-    const get = await axios.get('/channels', {
-      headers: Token(),
-    });
-    console.log('get', get.data.data)
-    return get.data.data;
+  const get = await axios.get('/channels', {
+    headers: Token(),
+  });
+  return get.data.data;
 }
 
 async function CreateChannel(data) {
- try {
-  const create = await axios.post('/channels', data, {
-    headers: Token(),
-  });
-  return create.data;
- } catch (error) {
-   console.log(error.response)
- }
+  try {
+    const create = await axios.post('/channels', data, {
+      headers: Token(),
+    });
+    return create.data;
+  } catch (error) {
+    console.log(error.response);
+  }
 }
 
-export { Register, LogIn, CreateChannel, GetChannel };
+async function RetrieveMessage(data) {
+  const retrieve = await axios.get(
+    `/messages?receiver_id=${data.id}&receiver_class=${data.class}`,
+    { headers: Token() }
+  );
+  console.log('data:', data)
+  console.log('receiver_id:', data.id)
+  console.log('receiver_class:', data.class)
+  console.log('fetch:', retrieve)
+  return retrieve.data.data;
+}
+
+export { Register, LogIn, CreateChannel, GetChannel, RetrieveMessage };

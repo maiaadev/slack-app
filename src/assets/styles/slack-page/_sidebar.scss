@@ -79,9 +79,20 @@
   display: flex;
   color: white;
   text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .channel-names {
-  height: 300px;
+  height: 240px;
   overflow-y: scroll;
+}
+
+.channel-names ul {
+  margin-top: 20px;
+}
+
+.channel-dropdown, .dm-dropdown {
+  font-weight: 600;
+  font-size: 18px;
 }

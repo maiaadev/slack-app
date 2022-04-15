@@ -542,11 +542,22 @@ body {
   display: flex;
   color: white;
   text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .channel-names {
-  height: 300px;
+  height: 240px;
   overflow-y: scroll;
+}
+
+.channel-names ul {
+  margin-top: 20px;
+}
+
+.channel-dropdown, .dm-dropdown {
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .main {
@@ -571,6 +582,22 @@ textarea {
   outline: none;
   border-radius: 10px;
   border: 1px solid grey;
+}
+
+textarea::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+
+textarea:-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+textarea::-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+textarea::placeholder {
+  text-transform: capitalize;
 }
 
 textarea:focus::-webkit-input-placeholder {
@@ -605,7 +632,20 @@ textarea:focus::placeholder {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px;
   font-size: 20px;
+  -webkit-box-shadow: 0px 1px gainsboro;
+          box-shadow: 0px 1px gainsboro;
+  height: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 10px;
+}
+
+.user-channel {
+  text-transform: capitalize;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 /*# sourceMappingURL=output.css.map */

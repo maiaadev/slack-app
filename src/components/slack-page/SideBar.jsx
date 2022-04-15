@@ -18,7 +18,7 @@ function SideBar() {
       </div>
       <div className='direct-message'>
         <div className='dm-dropdown'>
-          <i className='fa-solid fa-caret-down' />
+          {/* <i className='fa-solid fa-caret-down' /> */}
           Direct Messages
         </div>
         <div className='dm'>Sample</div>
