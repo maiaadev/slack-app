@@ -1,49 +1,33 @@
 import React, { useState } from 'react';
+import { Register } from '../../api/Fetch';
 
 function Form() {
-  const [account, setAccount] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [id, setId] = useState(0);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isValid, setIsValid] = useState(false);
+  // const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-
-    if (emailRegex.test(email)) {
-      setIsValid(true);
-    } else {
-      setIsValid(false);
-      setErrorMessage('Please enter a valid email');
-    }
-  };
-
-  const createAccount = (e) => {
+  const createAccount = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setIsSubmitted(false);
-      setErrorMessage('Passwords do not match');
-    } else if (
-      email !== '' &&
-      password !== '' &&
-      confirmPassword === password &&
-      emailRegex.test(email)
-    ) {
+    const data = {
+      email: email,
+      password: password,
+      password_confirmation: confirmPassword,
+    };
+
+    const register = await Register(data);
+
+    if (register) {
+      setErrorMessage(register);
+    } else {
       setIsSubmitted(true);
-      setAccount([...account, { id: id, email: email, password: password }]);
-      setId(id + 1);
       setEmail('');
       setPassword('');
       setConfirmPassword('');
       setErrorMessage('');
-    } else {
-      setErrorMessage('Please enter a valid email');
     }
   };
 
