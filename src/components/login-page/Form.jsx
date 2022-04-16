@@ -8,7 +8,7 @@ function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const { setHeader, setUser } = useContext(UseContext);
+  const { setHeader, setUser,setChannels } = useContext(UseContext);
   const navigate = useNavigate();
 
   const logIn = async (e) => {
@@ -30,6 +30,7 @@ function Form() {
       localStorage.setItem('user', JSON.stringify(userdata));
       localStorage.setItem('header', JSON.stringify(headers));
       localStorage.setItem('channels', JSON.stringify(await GetChannel()));
+      setChannels(JSON.parse(localStorage.getItem('channels')))
       setIsLoggedIn(true);
       setEmail('');
       setPassword('');
