@@ -17,7 +17,8 @@ function AddChannel() {
     const create = await CreateChannel(data);
     setChannel('');
     localStorage.setItem('channels', JSON.stringify(await GetChannel()));
-    setChannels(JSON.parse(localStorage.getItem('channels')))
+    setChannels(JSON.parse(localStorage.getItem('channels')));
+
 
     // console.log(create);
   };

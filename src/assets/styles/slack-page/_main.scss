@@ -48,3 +48,35 @@ textarea:focus::placeholder {
     font-weight: 600;
     letter-spacing: 1px;
 }
+
+
+.body {
+    height: 590px;
+    overflow-y: scroll;
+}
+
+.message {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin: 15px;
+    align-items: center;
+}
+
+.sender {
+    font-weight: 600;
+    color: rgba(33, 9, 34, 0.9);
+}
+
+.messages {
+    margin-top: 5px;
+    font-size: 18px;
+}
+.date {
+    color: grey;
+    font-size: 12px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

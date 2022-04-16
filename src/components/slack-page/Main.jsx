@@ -6,9 +6,9 @@ function Main({ name, id }) {
 
   useEffect(() => {
     handleMessage();
-    setMessage([])
-    console.log('useEffect')
-  },[id]);
+    setMessage([]);
+    console.log('useEffect');
+  }, [id]);
 
   // useEffect(() => {
   //   handleMessage();
@@ -19,13 +19,13 @@ function Main({ name, id }) {
   const handleMessage = async () => {
     const data = {
       id: id,
-      class:"Channel",
+      class: 'Channel',
     };
     const messages = await RetrieveMessage(data);
 
-    setMessage(messages)
-    console.log('messages:', messages)
-    console.log('message:', message)
+    setMessage(messages);
+    console.log('messages:', messages);
+    console.log('message:', message);
   };
   // handleMessage();
   return (
@@ -34,11 +34,25 @@ function Main({ name, id }) {
         <div className='user-channel'>{name}</div>
         <div className='members'>Members</div>
       </div>
-      {message.map((prop) => {
-        return <div key={prop.id} className='messages'>{prop.body}</div>;
-      })}
+      <div className='body'>
+        {message.map((prop) => {
+          console.log('date', prop.sender.created_at.substr(0, 10));
+          return (
+            <div key={prop.id} className='message'>
+              <div className='flex'>
+                <div className='sender'>{prop.sender.email}</div>{' '}
+                <div className='messages'>{prop.body}</div>
+              </div>
+              <div className='date'>
+                <div>{prop.sender.created_at.substr(0, 10)}</div>
+                <div>{prop.sender.created_at.substr(11, 11)}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
       <textarea placeholder={`Message ${name}`}></textarea>
-      <i className='fa-solid fa-paper-plane send-button'/>
+      <i className='fa-solid fa-paper-plane send-button' />
     </div>
   );
 }

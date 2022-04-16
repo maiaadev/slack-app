@@ -12,7 +12,7 @@ export function DataContextProvider({ children }) {
   useEffect(() => {
     setChannels(JSON.parse(localStorage.getItem('channels')))
     // console.log(channels)
-  }, [user])
+  },[])
   // setChannels(JSON.parse(localStorage.getItem('channels')))
 
   return <UseContext.Provider value={{user, setUser, accountCreated, setAccountCreated, header, setHeader, setChannels, channels, search, setSearch}}>{children}</UseContext.Provider>;
