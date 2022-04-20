@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UseContext from '../../context/UseContext';
 import SearchBar from './SearchBar';
 
 function NavBar() {
-  const {setChannels} = useContext(UseContext)
   const navigate = useNavigate();
   const logOut = () => {
     localStorage.clear()
-    // setChannels([]);
     navigate('/sign-in');
   };
   return (

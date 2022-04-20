@@ -79,4 +79,13 @@ textarea:focus::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+}
+
+.members {
+    cursor: pointer;
+}
+
+.slack-main {
+    position: fixed;
 }

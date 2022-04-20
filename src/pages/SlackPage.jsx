@@ -5,6 +5,7 @@ import NavBar from '../components/slack-page/NavBar';
 import SideBar from '../components/slack-page/SideBar';
 
 function SlackPage() {
+  
   return (
     <div>
       <div className='slack-navbar'>
@@ -12,7 +13,7 @@ function SlackPage() {
       </div>
       <div className='slack-main'>
         <SideBar/>
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );

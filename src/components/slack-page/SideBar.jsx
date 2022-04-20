@@ -21,7 +21,7 @@ function SideBar() {
           {/* <i className='fa-solid fa-caret-down' /> */}
           Direct Messages
         </div>
-        <div className='dm'>Sample</div>
+        <div className='dm'></div>
       </div>
     </div>
   );

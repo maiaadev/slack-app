@@ -7,15 +7,39 @@ export function DataContextProvider({ children }) {
   const [accountCreated, setAccountCreated] = useState(false);
   const [header, setHeader] = useState([]);
   const [channels, setChannels] = useState([]);
-  const [search, setSearch] = useState('')
+  const [message, setMessage] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
-    setChannels(JSON.parse(localStorage.getItem('channels')))
+    if (channels !== undefined) {
+      setChannels(JSON.parse(localStorage.getItem('channels')));
+    } else {
+      setChannels([]);
+    }
     // console.log(channels)
-  },[])
+  }, []);
   // setChannels(JSON.parse(localStorage.getItem('channels')))
 
-  return <UseContext.Provider value={{user, setUser, accountCreated, setAccountCreated, header, setHeader, setChannels, channels, search, setSearch}}>{children}</UseContext.Provider>;
+  return (
+    <UseContext.Provider
+      value={{
+        user,
+        accountCreated,
+        header,
+        channels,
+        search,
+        message,
+        setUser,
+        setAccountCreated,
+        setHeader,
+        setChannels,
+        setSearch,
+        setMessage
+      }}
+    >
+      {children}
+    </UseContext.Provider>
+  );
 }
 
 export default UseContext;

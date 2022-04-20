@@ -26,7 +26,7 @@ function GetChannels() {
             .map((prop) => {
               return (
                 <Link
-                  to={`${prop.name}`}
+                  to={`${prop.id}`}
                   key={prop.id}
                   className='channel-list'
                 >
