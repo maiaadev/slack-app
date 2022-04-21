@@ -45,7 +45,7 @@
 .channel-name,
 .add-channel,
 .dm,
-.channel-list {
+.channel-list, .user-list {
   margin-top: 20px;
   padding-left: 10px;
   height: 25px;
@@ -98,12 +98,6 @@
   font-size: 18px;
 }
 
-.direct-message {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
 .create-message {
   font-size: 20px;
   cursor: pointer;
@@ -114,7 +108,7 @@
   position: absolute;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .create-message-container {
@@ -193,4 +187,14 @@
   color: rgb(255, 103, 103);
   font-size: 14px;
   letter-spacing: 0.5px;
+}
+
+.dmessage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-list {
+  text-decoration: none;
+  color: white;
 }

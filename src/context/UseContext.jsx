@@ -11,7 +11,10 @@ export function DataContextProvider({ children }) {
   const [search, setSearch] = useState('');
   const [createMessage, setCreateMessage] = useState(false);
   const [recipient, setRecipient] = useState('');
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState('');
+  const [userList, setUserList] = useState([]);
+  const [body, setBody] = useState('');
+
 
   useEffect(() => {
     if (channels !== undefined) {
@@ -33,6 +36,8 @@ export function DataContextProvider({ children }) {
         createMessage,
         recipient,
         users,
+        userList,
+        body,
         setUser,
         setAccountCreated,
         setHeader,
@@ -42,6 +47,8 @@ export function DataContextProvider({ children }) {
         setCreateMessage,
         setRecipient,
         setUsers,
+        setUserList,
+        setBody
       }}
     >
       {children}

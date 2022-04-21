@@ -3,9 +3,7 @@ import { RetrieveMessage, SendMessage } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 
 function Main({ name, id }) {
-  const [body, setBody] = useState('');
-  const { message, setMessage } = useContext(UseContext);
-
+  const { message, setMessage, body, setBody } = useContext(UseContext);
   const messageEndRef = useRef(null);
 
   useEffect(() => {

@@ -5,10 +5,10 @@ import GetChannel from './GetChannel';
 import Modal from '../Modal';
 import CreateMessage from './CreateMessage';
 import { GetUsers } from '../../api/Fetch';
-
+import { Link } from 'react-router-dom';
 function SideBar() {
   const user = JSON.parse(localStorage.getItem('user'));
-  const { createMessage, setCreateMessage, users } =
+  const { createMessage, setCreateMessage, users, userList } =
     useContext(UseContext);
 
   return (
@@ -22,17 +22,28 @@ function SideBar() {
         <AddChannel />
       </div>
       <div className='direct-message'>
-        <div className='dm-dropdown'>Direct Messages</div>
-        <div
-          onClick={() => {
-            setCreateMessage(true);
-          }}
-          className='create-message'
-        >
-          +
-        </div>
+        <div className='dmessage'>
+          <div className='dm-dropdown'>Direct Messages</div>
+          <div
+            onClick={() => {
+              setCreateMessage(true);
+            }}
+            className='create-message'
+          >
+            +
+          </div></div>
+          {userList.map((prop) => {
+            if (userList !== null) {
+              return <Link
+              to={`${prop}`}
+              className='user-list'
+            >
+              {prop}
+            </Link>
+            }
+          })}
       </div>
-      <div>{users}</div>
+
       <Modal open={createMessage}>
         <CreateMessage />
       </Modal>

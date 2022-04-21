@@ -3,29 +3,40 @@ import { GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 
 function CreateMessage() {
-  const { setCreateMessage } = useContext(UseContext);
-  const [users, setUsers] = useState('');
+  const {
+    setCreateMessage,
+    users,
+    setUsers,
+    setUserList,
+    userList,
+    body,
+    setBody,
+  } = useContext(UseContext);
   const inputRef = useRef();
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     const get = await GetUsers();
-    console.log(get);
     const find = get.find((item) => item.email == users);
     if (find) {
       inputRef.current.focus();
       setErrorMessage('');
     } else {
+      console.log(body);
       setErrorMessage('User not found');
+    }
+    if (body !== '' && find) {
+      localStorage.setItem('users', JSON.stringify([...userList, users]));
+      setUserList(JSON.parse(localStorage.getItem('users')));
+      setBody('')
+      setUsers('')
+      setErrorMessage('')
+      setCreateMessage(false)
     }
   };
 
   const handleEnter = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      handleSubmit();
-    }
-    if (e.key === 'Tab') {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
     }
@@ -51,6 +62,11 @@ function CreateMessage() {
           ref={inputRef}
           className='textarea-modal'
           placeholder='Message'
+          value={body}
+          onChange={(e) => {
+            setBody(e.target.value);
+          }}
+          onKeyPress={handleEnter}
         ></textarea>
         <div className='options'>
           <button className='send-message option'>Send Message</button>

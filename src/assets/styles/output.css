@@ -270,6 +270,121 @@ body {
   cursor: pointer;
 }
 
+.account-created {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.account-created-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  max-height: 55%;
+  width: 100%;
+  max-width: 45%;
+  margin: 14% auto;
+  color: white;
+  background-color: #4a154b;
+  border-radius: 20px;
+}
+
+.account-created-message {
+  margin-top: 70px;
+  font-size: 20px;
+  margin-bottom: 70px;
+  font-weight: 500;
+  -webkit-animation: scale 1s forwards;
+          animation: scale 1s forwards;
+}
+
+@-webkit-keyframes scale {
+  to {
+    -webkit-transform: scale(2.5, 2.5);
+            transform: scale(2.5, 2.5);
+  }
+}
+
+@keyframes scale {
+  to {
+    -webkit-transform: scale(2.5, 2.5);
+            transform: scale(2.5, 2.5);
+  }
+}
+
+.fa-arrow-pointer {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  max-width: 60%;
+  -webkit-animation: pointer 1s infinite alternate;
+          animation: pointer 1s infinite alternate;
+}
+
+@-webkit-keyframes pointer {
+  to {
+    -webkit-transform: translate(-140px, -50px);
+            transform: translate(-140px, -50px);
+    color: black;
+  }
+}
+
+@keyframes pointer {
+  to {
+    -webkit-transform: translate(-140px, -50px);
+            transform: translate(-140px, -50px);
+    color: black;
+  }
+}
+
+.account-created-button {
+  border: none;
+  background-color: #136c47;
+  color: white;
+  font-size: 20px;
+  padding: 20px 80px;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  -webkit-animation: color 1s infinite alternate;
+          animation: color 1s infinite alternate;
+}
+
+@-webkit-keyframes color {
+  to {
+    background-color: white;
+    color: black;
+  }
+}
+
+@keyframes color {
+  to {
+    background-color: white;
+    color: black;
+  }
+}
+
 .nav-bar {
   display: -ms-grid;
   display: grid;
@@ -479,7 +594,7 @@ body {
 .channel-name,
 .add-channel,
 .dm,
-.channel-list {
+.channel-list, .user-list {
   margin-top: 20px;
   padding-left: 10px;
   height: 25px;
@@ -561,19 +676,6 @@ body {
   font-size: 18px;
 }
 
-.direct-message {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
 .create-message {
   font-size: 20px;
   cursor: pointer;
@@ -586,7 +688,7 @@ body {
   position: absolute;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .create-message-container {
@@ -696,6 +798,20 @@ body {
   color: #ff6767;
   font-size: 14px;
   letter-spacing: 0.5px;
+}
+
+.dmessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-list {
+  text-decoration: none;
+  color: white;
 }
 
 .main {

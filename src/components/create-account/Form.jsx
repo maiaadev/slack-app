@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Register } from '../../api/Fetch';
+import UseContext from '../../context/UseContext';
 
 function Form() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -7,6 +8,7 @@ function Form() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const {accountCreated, setAccountCreated} = useContext(UseContext)
   // const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   const createAccount = async (e) => {
@@ -28,6 +30,7 @@ function Form() {
       setPassword('');
       setConfirmPassword('');
       setErrorMessage('');
+      setAccountCreated(true);
     }
   };
 
