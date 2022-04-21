@@ -69,6 +69,13 @@ async function GetUsers() {
   return get.data.data;
 }
 
+async function AddMember(data) {
+  const add = await axios.get('/channel/add_member', data, {
+    headers: Token()
+  })
+  return add
+}
+
 export {
   Register,
   LogIn,
@@ -78,4 +85,5 @@ export {
   SendMessage,
   GetChannelMembers,
   GetUsers,
+  AddMember
 };

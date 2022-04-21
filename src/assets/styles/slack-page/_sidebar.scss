@@ -52,27 +52,6 @@
   height: 25px;
 }
 
-.add-channel {
-  margin-top: 10px;
-  background-color: white;
-  border: none;
-  outline: none;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-  height: 50px;
-  border-radius: 10px;
-  width: 100%;
-}
-
-.add-channel::placeholder {
-  font-size: 16px;
-}
-
-.add-channel:focus::placeholder {
-  color: transparent;
-}
-
 .channel-name:hover,
 .dm:hover {
   background-color: rgba(51, 9, 56, 0.8);
@@ -224,8 +203,79 @@
   border-radius: 20px;
 }
 
-.add-channel-container form {
+.add-channel-container input:first-child {
   width: 100%;
   max-width: 90%;
-  margin: auto;
+  margin-top: 10px;
+  background-color: white;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 10px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.add-member {
+  width: 100%;
+  max-width: 90%;
+  margin-top: 10px;
+  background-color: white;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.add-channel-container input::placeholder {
+  font-size: 16px;
+}
+
+.add-channel-container input:focus::placeholder {
+  color: transparent;
+}
+
+.add-channel-button {
+  outline: none;
+  border: none;
+  margin-top: 10px;
+  height: 50px;
+  width: 100%;
+  max-width: 20%;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.member-list {
+  height: 200px;
+  background-color: rgb(245, 186, 245);
+  width: 100%;
+  max-width: 90%;
+  border-radius: 0 0 10px 10px;
+  padding: 15px;
+  color: black;
+  overflow-y: scroll;
+}
+
+.member-name {
+  background-color: rgb(74, 16, 81);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.fa-trash-can {
+  cursor: pointer;
 }

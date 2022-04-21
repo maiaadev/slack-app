@@ -41,6 +41,8 @@ function Main({ name, id }) {
     const send = await SendMessage(data);
     getMessage();
     setBody('');
+    console.log(message)
+
   };
 
   const handleSubmit = (e) => {
