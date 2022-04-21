@@ -4,7 +4,7 @@ import UseContext from '../../context/UseContext';
 
 function Main({ name, id }) {
   const [body, setBody] = useState('');
-  const { message, setMessage, channels } = useContext(UseContext);
+  const { message, setMessage } = useContext(UseContext);
 
   const messageEndRef = useRef(null);
 
@@ -13,8 +13,14 @@ function Main({ name, id }) {
   }, [message]);
 
   useEffect(() => {
-    getMessage();
     setMessage([]);
+  }, [id]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getMessage();
+    }, 1000);
+    return () => clearInterval(interval);
   }, [id]);
 
   const getMessage = async () => {
@@ -47,11 +53,6 @@ function Main({ name, id }) {
       sendMessage();
     }
   };
-
-  // const sayHi = (e) => {
-  //   const hi = 'Hi! 👋🏻';
-  //   setBody(hi);
-  // };
 
   return (
     <div className='slack-page'>

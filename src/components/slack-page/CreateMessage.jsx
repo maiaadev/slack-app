@@ -5,7 +5,6 @@ import UseContext from '../../context/UseContext';
 function CreateMessage() {
   const { setCreateMessage } = useContext(UseContext);
   const [users, setUsers] = useState('');
-  const { userList, setUserList } = useContext(UseContext);
   const inputRef = useRef();
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -15,7 +14,7 @@ function CreateMessage() {
     const find = get.find((item) => item.email == users);
     if (find) {
       inputRef.current.focus();
-      setErrorMessage('')
+      setErrorMessage('');
     } else {
       setErrorMessage('User not found');
     }
@@ -23,6 +22,10 @@ function CreateMessage() {
 
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSubmit();
+    }
+    if (e.key === 'Tab') {
       e.preventDefault();
       handleSubmit();
     }

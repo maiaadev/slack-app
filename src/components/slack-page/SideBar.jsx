@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import UseContext from '../../context/UseContext';
 import AddChannel from './AddChannel';
 import GetChannel from './GetChannel';
@@ -8,7 +8,8 @@ import { GetUsers } from '../../api/Fetch';
 
 function SideBar() {
   const user = JSON.parse(localStorage.getItem('user'));
-  const { createMessage, setCreateMessage, userList, users } = useContext(UseContext);
+  const { createMessage, setCreateMessage, users } =
+    useContext(UseContext);
 
   return (
     <div className='sidebar'>
@@ -30,11 +31,8 @@ function SideBar() {
         >
           +
         </div>
-        {/* {userList.map((prop) => {
-          return <div className='user-list'>{prop.email}</div>;
-        })} */}
       </div>
-        <div>{users}</div>
+      <div>{users}</div>
       <Modal open={createMessage}>
         <CreateMessage />
       </Modal>

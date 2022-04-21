@@ -13,27 +13,28 @@ function GetChannels() {
       </div>
       <div className='channel-names'>
         <ul>
-          {channels && channels
-            .filter((item) => {
-              if (
-                search === '' ||
-                (item.name &&
-                  item.name.toLowerCase().includes(search.toLowerCase()))
-              ) {
-                return item;
-              }
-            })
-            .map((prop) => {
-              return (
-                <Link
-                  to={`${prop.id}`}
-                  key={prop.id}
-                  className='channel-list'
-                >
-                  {prop.name}
-                </Link>
-              );
-            })}
+          {channels &&
+            channels
+              .filter((item) => {
+                if (
+                  search === '' ||
+                  (item.name &&
+                    item.name.toLowerCase().includes(search.toLowerCase()))
+                ) {
+                  return item;
+                }
+              })
+              .map((prop) => {
+                return (
+                  <Link
+                    to={`${prop.id}`}
+                    key={prop.id}
+                    className='channel-list'
+                  >
+                    {prop.name}
+                  </Link>
+                );
+              })}
         </ul>
       </div>
     </div>

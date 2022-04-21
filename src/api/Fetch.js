@@ -66,7 +66,7 @@ async function GetUsers() {
     headers: Token(),
   });
   console.log('fetch', get.data.data);
-  return get.data.data
+  return get.data.data;
 }
 
 export {
@@ -77,5 +77,5 @@ export {
   RetrieveMessage,
   SendMessage,
   GetChannelMembers,
-  GetUsers
+  GetUsers,
 };
