@@ -58,8 +58,15 @@ async function GetChannelMembers(data) {
   const get = await axios.get(`/api/v1/channels/${data.id}`, data, {
     headers: Token(),
   });
-  console.log('fetch', get);
   return get;
+}
+
+async function GetUsers() {
+  const get = await axios.get('/users', {
+    headers: Token(),
+  });
+  console.log('fetch', get.data.data);
+  return get.data.data
 }
 
 export {
@@ -69,5 +76,6 @@ export {
   GetChannel,
   RetrieveMessage,
   SendMessage,
-  GetChannelMembers
+  GetChannelMembers,
+  GetUsers
 };

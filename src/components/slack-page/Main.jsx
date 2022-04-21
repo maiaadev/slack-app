@@ -6,11 +6,11 @@ function Main({ name, id }) {
   const [body, setBody] = useState('');
   const { message, setMessage, channels } = useContext(UseContext);
 
-  const messageEndRef = useRef(null)
+  const messageEndRef = useRef(null);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();
-  }, [message])
+  }, [message]);
 
   useEffect(() => {
     getMessage();
@@ -38,15 +38,20 @@ function Main({ name, id }) {
     console.log('data', data);
     console.log('messages', message);
     getMessage();
+    setBody('');
   };
 
   const handleSubmit = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
-      setBody('');
     }
   };
+
+  // const sayHi = (e) => {
+  //   const hi = 'Hi! 👋🏻';
+  //   setBody(hi);
+  // };
 
   return (
     <div className='slack-page'>
@@ -72,7 +77,7 @@ function Main({ name, id }) {
           })}
           <div ref={messageEndRef}></div>
         </div>
-        <form onSubmit={handleSubmit}>
+        <div className='text-area'>
           <textarea
             value={body}
             onChange={(e) => {
@@ -81,8 +86,10 @@ function Main({ name, id }) {
             onKeyPress={handleSubmit}
             placeholder={`Message ${name}`}
           ></textarea>
-          <i className='fa-solid fa-paper-plane send-button' />
-        </form>
+          <button onClick={sendMessage} className='send' type='submit'>
+            Send Message
+          </button>
+        </div>
       </div>
     </div>
   );

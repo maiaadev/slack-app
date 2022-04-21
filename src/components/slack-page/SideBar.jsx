@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import UseContext from '../../context/UseContext';
 import AddChannel from './AddChannel';
 import GetChannel from './GetChannel';
+import Modal from '../Modal';
+import CreateMessage from './CreateMessage';
+import { GetUsers } from '../../api/Fetch';
 
 function SideBar() {
   const user = JSON.parse(localStorage.getItem('user'));
+  const { createMessage, setCreateMessage, userList, users } = useContext(UseContext);
 
   return (
     <div className='sidebar'>
@@ -17,12 +21,23 @@ function SideBar() {
         <AddChannel />
       </div>
       <div className='direct-message'>
-        <div className='dm-dropdown'>
-          {/* <i className='fa-solid fa-caret-down' /> */}
-          Direct Messages
+        <div className='dm-dropdown'>Direct Messages</div>
+        <div
+          onClick={() => {
+            setCreateMessage(true);
+          }}
+          className='create-message'
+        >
+          +
         </div>
-        <div className='dm'></div>
+        {/* {userList.map((prop) => {
+          return <div className='user-list'>{prop.email}</div>;
+        })} */}
       </div>
+        <div>{users}</div>
+      <Modal open={createMessage}>
+        <CreateMessage />
+      </Modal>
     </div>
   );
 }
