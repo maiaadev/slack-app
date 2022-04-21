@@ -14,6 +14,7 @@ export function DataContextProvider({ children }) {
   const [users, setUsers] = useState('');
   const [userList, setUserList] = useState([]);
   const [body, setBody] = useState('');
+  const [addChannel, setAddChannel] = useState(false)
 
 
   useEffect(() => {
@@ -23,6 +24,14 @@ export function DataContextProvider({ children }) {
       setChannels([]);
     }
   }, []);
+
+  useEffect(() => {
+    if (users !== undefined) {
+      setUserList(JSON.parse(localStorage.getItem('users')));
+    } else {
+      setUserList([])
+    }
+  }, [])
 
   return (
     <UseContext.Provider
@@ -38,6 +47,7 @@ export function DataContextProvider({ children }) {
         users,
         userList,
         body,
+        addChannel,
         setUser,
         setAccountCreated,
         setHeader,
@@ -48,7 +58,8 @@ export function DataContextProvider({ children }) {
         setRecipient,
         setUsers,
         setUserList,
-        setBody
+        setBody,
+        setAddChannel
       }}
     >
       {children}

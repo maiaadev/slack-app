@@ -594,39 +594,39 @@ body {
 .channel-name,
 .add-channel,
 .dm,
-.channel-list, .user-list {
+.channel-list,
+.user-list {
   margin-top: 20px;
-  padding-left: 10px;
+  padding-left: 15px;
   height: 25px;
 }
 
 .add-channel {
   margin-top: 10px;
-  background-color: #4a1051;
+  background-color: white;
   border: none;
   outline: none;
-  color: white;
+  color: black;
   font-size: 16px;
   cursor: pointer;
+  height: 50px;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .add-channel::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
 }
 
 .add-channel:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
 }
 
 .add-channel::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
 }
 
 .add-channel::placeholder {
-  color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
 }
 
@@ -666,18 +666,22 @@ body {
   overflow-y: scroll;
 }
 
-.channel-names ul {
-  margin-top: 20px;
-}
-
 .channel-dropdown,
 .dm-dropdown {
   font-weight: 600;
   font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-.create-message {
-  font-size: 20px;
+.create-message,
+.add-icon {
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -812,6 +816,43 @@ body {
 .user-list {
   text-decoration: none;
   color: white;
+}
+
+.add-channel-modal {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+}
+
+.add-channel-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  max-height: 55%;
+  width: 100%;
+  max-width: 45%;
+  margin: 14% auto;
+  color: white;
+  background-color: #4a154b;
+  border-radius: 20px;
+}
+
+.add-channel-container form {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
 }
 
 .main {

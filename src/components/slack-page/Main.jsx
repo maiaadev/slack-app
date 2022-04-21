@@ -39,8 +39,6 @@ function Main({ name, id }) {
     };
 
     const send = await SendMessage(data);
-    console.log('data', data);
-    console.log('messages', message);
     getMessage();
     setBody('');
   };

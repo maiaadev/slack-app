@@ -8,7 +8,7 @@ import { GetUsers } from '../../api/Fetch';
 import { Link } from 'react-router-dom';
 function SideBar() {
   const user = JSON.parse(localStorage.getItem('user'));
-  const { createMessage, setCreateMessage, users, userList } =
+  const { createMessage, setCreateMessage, users, userList, search } =
     useContext(UseContext);
 
   return (
@@ -19,7 +19,6 @@ function SideBar() {
       </div>
       <div className='channels'>
         <GetChannel />
-        <AddChannel />
       </div>
       <div className='direct-message'>
         <div className='dmessage'>
@@ -30,18 +29,28 @@ function SideBar() {
             }}
             className='create-message'
           >
-            +
-          </div></div>
-          {userList.map((prop) => {
-            if (userList !== null) {
-              return <Link
-              to={`${prop}`}
-              className='user-list'
-            >
-              {prop}
-            </Link>
-            }
-          })}
+            <i className='fa-solid fa-pen-to-square'/>
+          </div>
+        </div>
+        {userList &&
+          userList
+            .filter((item) => {
+              if (
+                search === '' ||
+                (item && item.toLowerCase().includes(search.toLowerCase()))
+              ) {
+                return item;
+              }
+            })
+            .map((prop) => {
+              if (userList !== null) {
+                return (
+                  <Link to={`${prop}`} className='user-list'>
+                    {prop}
+                  </Link>
+                );
+              }
+            })}
       </div>
 
       <Modal open={createMessage}>

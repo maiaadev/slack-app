@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import UseContext from '../../context/UseContext';
 import { Link } from 'react-router-dom';
+import Modal from '../Modal';
+import AddChannel from './AddChannel';
 
 function GetChannels() {
-  const { channels, search } = useContext(UseContext);
+  const { channels, search, addChannel, setAddChannel } = useContext(UseContext);
 
   return (
     <div>
       <div className='channel-dropdown'>
-        {/* <i className='fa-solid fa-caret-down' /> */}
-        Channels
+        <div className='channel-title'>Channels</div>
+      <i onClick={() => {setAddChannel(true)}}className="fa-solid fa-plus add-icon"/>
       </div>
       <div className='channel-names'>
         <ul>
@@ -37,6 +39,9 @@ function GetChannels() {
               })}
         </ul>
       </div>
+      <Modal open={addChannel}>
+        <AddChannel/>
+      </Modal>
     </div>
   );
 }

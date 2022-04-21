@@ -7,7 +7,7 @@ function SearchBar() {
     <input
       className='search'
       type='text'
-      placeholder='Search Channel'
+      placeholder='Search'
       onChange={(e) => {
         setSearch(e.target.value);
       }}
