@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { GetChannel, LogIn } from '../../api/Fetch';
+import { GetChannel, GetUsers, LogIn } from '../../api/Fetch';
 import { useNavigate } from 'react-router-dom';
 import UseContext from '../../context/UseContext';
 

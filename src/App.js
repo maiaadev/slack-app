@@ -9,7 +9,7 @@ import UseContext from './context/UseContext';
 import Main from './components/slack-page/Main';
 
 function App() {
-  const { channels } = useContext(UseContext);
+  const { channels, userList } = useContext(UseContext);
   return (
     <BrowserRouter>
       <Routes>
@@ -23,7 +23,17 @@ function App() {
                 <Route
                   path={`${prop.id}`}
                   key={prop.id}
-                  element={<Main name={prop.name} id={prop.id} />}
+                  element={<Main name={prop.name} id={prop.id} data={prop}/>}
+                />
+              );
+            })}
+          {userList &&
+            userList.map((prop) => {
+              return (
+                <Route
+                  path={`${prop.id}`}
+                  key={prop.id}
+                  element={<Main name={prop.email} id={prop.id} data={prop}/>}
                 />
               );
             })}

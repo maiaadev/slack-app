@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import { GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 
-function CreateMessage() {
+function CreateMessage({sendMessage}) {
   const {
     setCreateMessage,
     users,
@@ -18,6 +18,7 @@ function CreateMessage() {
   const handleSubmit = async (e) => {
     const get = await GetUsers();
     const find = get.find((item) => item.email == users);
+    console.log('find', find)
     if (find) {
       inputRef.current.focus();
       setErrorMessage('');
@@ -26,9 +27,8 @@ function CreateMessage() {
       setErrorMessage('User not found');
     }
     if (body !== '' && find) {
-      localStorage.setItem('users', JSON.stringify([...userList, users]));
+      localStorage.setItem('users', JSON.stringify([...userList, find]));
       setUserList(JSON.parse(localStorage.getItem('users')));
-      setBody('')
       setUsers('')
       setErrorMessage('')
       setCreateMessage(false)
@@ -61,7 +61,7 @@ function CreateMessage() {
         <textarea
           ref={inputRef}
           className='textarea-modal'
-          placeholder='Message'
+          placeholder={`Message ${userList.email}`}
           value={body}
           onChange={(e) => {
             setBody(e.target.value);

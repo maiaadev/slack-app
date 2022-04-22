@@ -2,9 +2,11 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { RetrieveMessage, SendMessage } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 
-function Main({ name, id }) {
-  const { message, setMessage, body, setBody } = useContext(UseContext);
+function Main({ name, id, data }) {
+  const { message, setMessage, body, setBody } =
+    useContext(UseContext);
   const messageEndRef = useRef(null);
+  const receiverClass = data.email ? true : false 
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();
@@ -24,7 +26,7 @@ function Main({ name, id }) {
   const getMessage = async () => {
     const data = {
       id: id,
-      class: 'Channel',
+      class: receiverClass ? 'User' : 'Channel'
     };
     const messages = await RetrieveMessage(data);
 
@@ -34,15 +36,14 @@ function Main({ name, id }) {
   const sendMessage = async () => {
     const data = {
       receiver_id: id,
-      receiver_class: 'Channel',
+      receiver_class: receiverClass ? 'User' : 'Channel',
       body: body,
     };
 
     const send = await SendMessage(data);
     getMessage();
     setBody('');
-    console.log(message)
-
+    console.log(message);
   };
 
   const handleSubmit = (e) => {

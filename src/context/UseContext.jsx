@@ -25,13 +25,13 @@ export function DataContextProvider({ children }) {
     }
   }, []);
 
-  useEffect(() => {
-    if (users !== undefined) {
-      setUserList(JSON.parse(localStorage.getItem('users')));
-    } else {
-      setUserList([])
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (userList !== undefined) {
+  //     setUserList(JSON.parse(localStorage.getItem('users')));
+  //   } else {
+  //     setUserList([])
+  //   }
+  // }, [])
 
   return (
     <UseContext.Provider

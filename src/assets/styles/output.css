@@ -939,19 +939,19 @@ textarea {
   text-transform: capitalize;
 }
 
-textarea::-webkit-input-placeholder {
+textarea::-webkit-input-placeholder::first-letter {
   text-transform: capitalize;
 }
 
-textarea:-ms-input-placeholder {
+textarea:-ms-input-placeholder::first-letter {
   text-transform: capitalize;
 }
 
-textarea::-ms-input-placeholder {
+textarea::-ms-input-placeholder::first-letter {
   text-transform: capitalize;
 }
 
-textarea::placeholder {
+textarea::placeholder::first-letter {
   text-transform: capitalize;
 }
 
@@ -1006,7 +1006,6 @@ textarea:focus::placeholder {
 }
 
 .user-channel {
-  text-transform: capitalize;
   font-size: 30px;
   font-weight: 600;
   letter-spacing: 1px;

@@ -14,6 +14,7 @@ function AddChannel({ id }) {
   const [memberList, setMemberList] = useState([]);
   const [error, setError] = useState('');
 
+
   const handleAddChannel = async (e) => {
     const data = {
       name: channel,
@@ -83,6 +84,7 @@ function AddChannel({ id }) {
           }}
         ></input>
         <div className='member-list'>
+          <div>{user.email}</div>
           {memberList.map((prop) => {
             return (
               <div className='member-name'>
