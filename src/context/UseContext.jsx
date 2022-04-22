@@ -1,22 +1,23 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, useRef } from 'react';
 
 const UseContext = createContext({});
 
 export function DataContextProvider({ children }) {
   const [user, setUser] = useState('');
-  const [accountCreated, setAccountCreated] = useState(false);
   const [header, setHeader] = useState([]);
   const [channels, setChannels] = useState([]);
   const [message, setMessage] = useState([]);
   const [search, setSearch] = useState('');
-  const [createMessage, setCreateMessage] = useState(false);
   const [recipient, setRecipient] = useState('');
   const [users, setUsers] = useState('');
   const [userList, setUserList] = useState([]);
+  const [channelMembers, setChannelMembers] = useState([]);
   const [body, setBody] = useState('');
-  const [addChannel, setAddChannel] = useState(false)
-  const [showMembers, setShowMembers] = useState(false)
-
+  const [isOpenChannelModal, setIsOpenChannelModal] = useState(false)
+  const [isOpenMembersModal, setIsOpenMembersModal] = useState(false)
+  const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
+  const [isOpenMessageModal, setIsOpenMessageModal] = useState(false);
+  const messageEndRef = useRef(null);
 
   useEffect(() => {
     if (localStorage.getItem('channels') === null) {
@@ -34,35 +35,42 @@ export function DataContextProvider({ children }) {
     }
   }, [])
 
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView();
+  }, [message]);
+
   return (
     <UseContext.Provider
       value={{
         user,
-        accountCreated,
+        isOpenCreateModal,
         header,
         channels,
         search,
         message,
-        createMessage,
+        isOpenMessageModal,
         recipient,
         users,
         userList,
         body,
-        addChannel,
-        showMembers,
+        isOpenChannelModal,
+        isOpenMembersModal,
+        messageEndRef,
+        channelMembers,
+        setChannelMembers,
         setUser,
-        setAccountCreated,
+        setIsOpenCreateModal,
         setHeader,
         setChannels,
         setSearch,
         setMessage,
-        setCreateMessage,
+        setIsOpenMessageModal,
         setRecipient,
         setUsers,
         setUserList,
         setBody,
-        setAddChannel,
-        setShowMembers
+        setIsOpenChannelModal,
+        setIsOpenMembersModal
       }}
     >
       {children}

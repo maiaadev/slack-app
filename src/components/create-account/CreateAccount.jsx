@@ -1,13 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import Logo from '../home-page/Logo';
 import Form from './Form';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../Modal';
-import UseContext from '../../context/UseContext';
-import AccountCreated from './AccountCreated';
 
 function Create() {
-  const { accountCreated, setAccountCreated } = useContext(UseContext);
   const navigate = useNavigate();
 
   const handleNavigate = () => {

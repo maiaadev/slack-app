@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import UseContext from '../../context/UseContext';
 
-function MemberList({ channelMembers }) {
-  const { setShowMembers } = useContext(UseContext);
+function MemberList() {
+  const { setIsOpenMembersModal, channelMembers } = useContext(UseContext);
 
   return (
     <div className='member-list-modal'>
@@ -10,7 +10,7 @@ function MemberList({ channelMembers }) {
         <div className='top-modal'>
           <i
             onClick={() => {
-              setShowMembers(false);
+              setIsOpenMembersModal(false);
             }}
             className='fa-solid fa-circle-xmark'
           />
@@ -18,7 +18,7 @@ function MemberList({ channelMembers }) {
         <div className='member-list-title'>Channel Members</div>
         {channelMembers.map((prop) => {
           return (
-            <div key={prop.user_id} className='channel-members'>
+            <div key={prop.id} className='channel-members'>
               {prop.email}
             </div>
           );

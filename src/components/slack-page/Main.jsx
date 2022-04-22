@@ -1,7 +1,5 @@
-import { getActiveElement } from '@testing-library/user-event/dist/utils';
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import {
-  GetChannelDetails,
   GetChannelMembers,
   GetUsers,
   RetrieveMessage,
@@ -10,18 +8,19 @@ import {
 import UseContext from '../../context/UseContext';
 import MemberList from './MemberList';
 import Modal from '../Modal';
-import axios from 'axios';
 
 function Main({ name, id, data }) {
-  const { message, setMessage, body, setBody, showMembers, setShowMembers } =
-    useContext(UseContext);
-  const messageEndRef = useRef(null);
+  const {
+    message,
+    setMessage,
+    body,
+    setBody,
+    isOpenMembersModal,
+    setIsOpenMembersModal,
+    messageEndRef,
+    setChannelMembers,
+  } = useContext(UseContext);
   const receiverClass = data.email ? true : false;
-  const [channelMembers, setChannelMembers] = useState([]);
-
-  useEffect(() => {
-    messageEndRef.current?.scrollIntoView();
-  }, [message]);
 
   useEffect(() => {
     setMessage([]);
@@ -70,7 +69,7 @@ function Main({ name, id, data }) {
       users.find((user) => user.id == member.user_id)
     );
     setChannelMembers(members);
-    setShowMembers(true)
+    setIsOpenMembersModal(true);
   };
 
   return (
@@ -78,10 +77,7 @@ function Main({ name, id, data }) {
       <div className='main'>
         <div className='channel-user'>
           <div className='user-channel'>{name}</div>
-          <div
-            onClick={getMembers}
-            className='members'
-          >
+          <div onClick={getMembers} className='members'>
             {receiverClass ? '' : 'Members'}
           </div>
         </div>
@@ -116,8 +112,8 @@ function Main({ name, id, data }) {
           </button>
         </div>
       </div>
-      <Modal open={showMembers} >
-        <MemberList channelMembers={channelMembers} />
+      <Modal open={isOpenMembersModal}>
+        <MemberList />
       </Modal>
     </div>
   );

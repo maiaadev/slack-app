@@ -5,13 +5,19 @@ import Modal from '../Modal';
 import AddChannel from './AddChannel';
 
 function GetChannels() {
-  const { channels, search, addChannel, setAddChannel } = useContext(UseContext);
+  const { channels, search, isOpenChannelModal, setIsOpenChannelModal } =
+    useContext(UseContext);
 
   return (
     <div>
       <div className='channel-dropdown'>
         <div className='channel-title'>Channels</div>
-      <i onClick={() => {setAddChannel(true)}}className="fa-solid fa-plus add-icon"/>
+        <i
+          onClick={() => {
+            setIsOpenChannelModal(true);
+          }}
+          className='fa-solid fa-plus add-icon'
+        />
       </div>
       <div className='channel-names'>
         <ul>
@@ -39,8 +45,8 @@ function GetChannels() {
               })}
         </ul>
       </div>
-      <Modal open={addChannel}>
-        <AddChannel/>
+      <Modal open={isOpenChannelModal}>
+        <AddChannel />
       </Modal>
     </div>
   );

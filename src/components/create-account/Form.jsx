@@ -8,8 +8,7 @@ function Form() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const {accountCreated, setAccountCreated} = useContext(UseContext)
-  // const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const {setIsOpenCreateModal} = useContext(UseContext)
 
   const createAccount = async (e) => {
     e.preventDefault();
@@ -30,7 +29,7 @@ function Form() {
       setPassword('');
       setConfirmPassword('');
       setErrorMessage('');
-      setAccountCreated(true);
+      setIsOpenCreateModal(true);
     }
   };
 

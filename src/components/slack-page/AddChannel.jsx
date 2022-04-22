@@ -1,15 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {
-  AddMember,
-  CreateChannel,
-  GetChannel,
-  GetUsers,
-} from '../../api/Fetch';
+import React, { useContext, useState } from 'react';
+import { CreateChannel, GetChannel, GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 
-function AddChannel({ id }) {
+function AddChannel() {
   const [channel, setChannel] = useState('');
-  const { user, setChannels, setAddChannel, users } = useContext(UseContext);
+  const { user, setChannels, setIsOpenChannelModal } = useContext(UseContext);
   const [member, setMember] = useState('');
   const [memberList, setMemberList] = useState([]);
   const [error, setError] = useState('');
@@ -25,43 +20,33 @@ function AddChannel({ id }) {
     setChannel('');
     localStorage.setItem('channels', JSON.stringify(await GetChannel()));
     setChannels(JSON.parse(localStorage.getItem('channels')));
-    setAddChannel(false);
+    setIsOpenChannelModal(false);
   };
 
   const addChannelMember = async (e) => {
-    // const data = {
-    //   id: id,
-    //   member_id: [user.id],
-    // };
-
-    // const add = await AddMember(data);
     const get = await GetUsers();
     const find = get.find((item) => item.email == member);
     console.log(find);
 
     if (find) {
-      // localStorage.setItem('members', JSON.stringify([...memberList, find]));
-      // setMemberList(JSON.parse(localStorage.getItem('members')));
-      setMemberList([...memberList, find])
+      setMemberList([...memberList, find]);
       setError('');
-      setMember('')
+      setMember('');
     } else if (!find) {
       setError('User not found');
     }
   };
 
-
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      // handleAddChannel();
       addChannelMember();
       setMember('');
     }
   };
 
   const handleDelete = () => {
-    memberList.pop()
+    memberList.pop();
   };
 
   return (
@@ -100,7 +85,7 @@ function AddChannel({ id }) {
         <button
           className='add-channel-button'
           onClick={() => {
-            setAddChannel(false);
+            setIsOpenChannelModal(false);
           }}
         >
           Close
