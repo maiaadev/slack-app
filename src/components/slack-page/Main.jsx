@@ -1,6 +1,12 @@
 import { getActiveElement } from '@testing-library/user-event/dist/utils';
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import { GetChannelDetails, GetChannelMembers, RetrieveMessage, SendMessage } from '../../api/Fetch';
+import {
+  GetChannelDetails,
+  GetChannelMembers,
+  GetUsers,
+  RetrieveMessage,
+  SendMessage,
+} from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 import MemberList from './MemberList';
 import Modal from '../Modal';
@@ -10,8 +16,8 @@ function Main({ name, id, data }) {
   const { message, setMessage, body, setBody, showMembers, setShowMembers } =
     useContext(UseContext);
   const messageEndRef = useRef(null);
-  const receiverClass = data.email ? true : false ;
-  const [channelMembers, setChannelMembers] = useState([])
+  const receiverClass = data.email ? true : false;
+  const [channelMembers, setChannelMembers] = useState([]);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();
@@ -31,7 +37,7 @@ function Main({ name, id, data }) {
   const getMessage = async () => {
     const data = {
       id: id,
-      class: receiverClass ? 'User' : 'Channel'
+      class: receiverClass ? 'User' : 'Channel',
     };
     const messages = await RetrieveMessage(data);
 
@@ -58,21 +64,26 @@ function Main({ name, id, data }) {
   };
 
   const getMembers = async () => {
-    const get = await GetChannelMembers(id)
-    console.log(get)
-    setChannelMembers(get)
-  }  
+    const users = await GetUsers();
+    const get = await GetChannelMembers(id);
+    const members = get.map((member) =>
+      users.find((user) => user.id == member.user_id)
+    );
+    setChannelMembers(members);
+    setShowMembers(true)
+  };
 
-  useEffect(() => {
-    getMembers()
-  }, [])
-
-    return (
+  return (
     <div className='slack-page'>
       <div className='main'>
         <div className='channel-user'>
           <div className='user-channel'>{name}</div>
-          <div onClick={() => {setShowMembers(true)}}className='members'>{receiverClass ? '' : 'Members'}</div>
+          <div
+            onClick={getMembers}
+            className='members'
+          >
+            {receiverClass ? '' : 'Members'}
+          </div>
         </div>
         <div className='body'>
           {message.map((prop) => {
@@ -98,15 +109,15 @@ function Main({ name, id, data }) {
               setBody(e.target.value);
             }}
             onKeyPress={handleSubmit}
-            placeholder={`Message {${name}}`}
+            placeholder={`Message ${name}`}
           ></textarea>
           <button onClick={sendMessage} className='send' type='submit'>
             Send Message
           </button>
         </div>
       </div>
-      <Modal open={showMembers}>
-        <MemberList channelMembers={channelMembers}/>
+      <Modal open={showMembers} >
+        <MemberList channelMembers={channelMembers} />
       </Modal>
     </div>
   );

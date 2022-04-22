@@ -1088,7 +1088,7 @@ textarea:focus::placeholder {
   margin: 10% auto;
   max-width: 40%;
   border-radius: 20px;
-  padding: 40px 20px;
+  padding: 40px;
   color: white;
 }
 
@@ -1096,12 +1096,72 @@ textarea:focus::placeholder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .fa-circle-xmark {
   cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+}
+
+.fa-circle-xmark:hover {
+  color: #f5baf5;
+}
+
+.member-list-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.channel-members {
+  font-size: 20px;
+  margin: 5px;
+  background-color: #f5baf5;
+  color: black;
+  font-weight: 400;
+  height: 40px;
+  padding: 5px 10px;
+  width: 70%;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-channel-member {
+  height: 40px;
+  width: 70%;
+  margin: 5px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.add-channel-member:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.add-channel-member:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.add-channel-member:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.add-channel-member:focus::placeholder {
+  color: transparent;
 }
 /*# sourceMappingURL=output.css.map */

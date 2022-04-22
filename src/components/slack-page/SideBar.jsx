@@ -45,7 +45,7 @@ function SideBar() {
             .map((prop) => {
               if (userList !== null) {
                 return (
-                  <Link to={`${prop.id}`} className='user-list'>
+                  <Link key={prop.id} to={`${prop.id}`} className='user-list'>
                     {prop.email}
                   </Link>
                 );
