@@ -55,25 +55,31 @@ async function SendMessage(data) {
 }
 
 async function GetChannelMembers(data) {
-  const get = await axios.get(`/api/v1/channels/${data.id}`, data, {
+  const get = await axios.get(`/channels/${data}`, {
     headers: Token(),
   });
-  return get;
+  return get.data.data.channel_members;
+}
+
+async function AddChannelMember(data) {
+  const add = await axios.post('/channel/add_member', data, {
+    headers: Token(),
+  });
+  return add;
 }
 
 async function GetUsers() {
   const get = await axios.get('/users', {
     headers: Token(),
   });
-  console.log('fetch', get.data.data);
   return get.data.data;
 }
 
 async function AddMember(data) {
   const add = await axios.get('/channel/add_member', data, {
-    headers: Token()
-  })
-  return add
+    headers: Token(),
+  });
+  return add;
 }
 
 export {
@@ -85,5 +91,6 @@ export {
   SendMessage,
   GetChannelMembers,
   GetUsers,
-  AddMember
+  AddMember,
+  AddChannelMember
 };

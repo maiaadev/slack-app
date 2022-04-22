@@ -1,8 +1,10 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import { GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
+import { SendMessage } from '../../api/Fetch';
+import { useNavigate } from 'react-router-dom';
 
-function CreateMessage({sendMessage}) {
+function CreateMessage() {
   const {
     setCreateMessage,
     users,
@@ -11,9 +13,11 @@ function CreateMessage({sendMessage}) {
     userList,
     body,
     setBody,
+    setMessage
   } = useContext(UseContext);
   const inputRef = useRef();
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     const get = await GetUsers();
@@ -29,10 +33,23 @@ function CreateMessage({sendMessage}) {
     if (body !== '' && find) {
       localStorage.setItem('users', JSON.stringify([...userList, find]));
       setUserList(JSON.parse(localStorage.getItem('users')));
+      sendMessage(find.id)
+      navigate(`/slack/${find.id}`)
       setUsers('')
+      setBody('')
       setErrorMessage('')
       setCreateMessage(false)
     }
+  };
+
+  const sendMessage = async (id) => {
+    const data = {
+      receiver_id: id,
+      receiver_class: 'User',
+      body: body,
+    };
+
+    const send = await SendMessage(data);
   };
 
   const handleEnter = (e) => {
@@ -61,7 +78,7 @@ function CreateMessage({sendMessage}) {
         <textarea
           ref={inputRef}
           className='textarea-modal'
-          placeholder={`Message ${userList.email}`}
+          placeholder='New Message'
           value={body}
           onChange={(e) => {
             setBody(e.target.value);

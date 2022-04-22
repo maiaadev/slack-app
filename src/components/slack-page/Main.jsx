@@ -1,12 +1,17 @@
+import { getActiveElement } from '@testing-library/user-event/dist/utils';
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import { RetrieveMessage, SendMessage } from '../../api/Fetch';
+import { GetChannelDetails, GetChannelMembers, RetrieveMessage, SendMessage } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
+import MemberList from './MemberList';
+import Modal from '../Modal';
+import axios from 'axios';
 
 function Main({ name, id, data }) {
-  const { message, setMessage, body, setBody } =
+  const { message, setMessage, body, setBody, showMembers, setShowMembers } =
     useContext(UseContext);
   const messageEndRef = useRef(null);
-  const receiverClass = data.email ? true : false 
+  const receiverClass = data.email ? true : false ;
+  const [channelMembers, setChannelMembers] = useState([])
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();
@@ -43,7 +48,6 @@ function Main({ name, id, data }) {
     const send = await SendMessage(data);
     getMessage();
     setBody('');
-    console.log(message);
   };
 
   const handleSubmit = (e) => {
@@ -53,12 +57,22 @@ function Main({ name, id, data }) {
     }
   };
 
-  return (
+  const getMembers = async () => {
+    const get = await GetChannelMembers(id)
+    console.log(get)
+    setChannelMembers(get)
+  }  
+
+  useEffect(() => {
+    getMembers()
+  }, [])
+
+    return (
     <div className='slack-page'>
       <div className='main'>
         <div className='channel-user'>
           <div className='user-channel'>{name}</div>
-          <div className='members'>Members</div>
+          <div onClick={() => {setShowMembers(true)}}className='members'>{receiverClass ? '' : 'Members'}</div>
         </div>
         <div className='body'>
           {message.map((prop) => {
@@ -84,13 +98,16 @@ function Main({ name, id, data }) {
               setBody(e.target.value);
             }}
             onKeyPress={handleSubmit}
-            placeholder={`Message ${name}`}
+            placeholder={`Message {${name}}`}
           ></textarea>
           <button onClick={sendMessage} className='send' type='submit'>
             Send Message
           </button>
         </div>
       </div>
+      <Modal open={showMembers}>
+        <MemberList channelMembers={channelMembers}/>
+      </Modal>
     </div>
   );
 }

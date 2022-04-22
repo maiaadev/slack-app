@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UseContext from '../../context/UseContext';
+import Modal from '../Modal';
+import MemberList from './MemberList';
 import SearchBar from './SearchBar';
 
 function NavBar() {
   const navigate = useNavigate();
+  const { setChannels, setUserList } = useContext(UseContext);
   const logOut = () => {
+    setChannels([]);
+    setUserList([]);
     localStorage.clear();
     navigate('/sign-in');
   };

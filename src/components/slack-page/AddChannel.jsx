@@ -13,7 +13,7 @@ function AddChannel({ id }) {
   const [member, setMember] = useState('');
   const [memberList, setMemberList] = useState([]);
   const [error, setError] = useState('');
-
+  const userDetails = JSON.parse(localStorage.getItem('user'));
 
   const handleAddChannel = async (e) => {
     const data = {
@@ -38,15 +38,18 @@ function AddChannel({ id }) {
     const get = await GetUsers();
     const find = get.find((item) => item.email == member);
     console.log(find);
+
     if (find) {
-      localStorage.setItem('members', JSON.stringify([...memberList, member]));
-      setMemberList(JSON.parse(localStorage.getItem('members')));
+      // localStorage.setItem('members', JSON.stringify([...memberList, find]));
+      // setMemberList(JSON.parse(localStorage.getItem('members')));
+      setMemberList([...memberList, find])
       setError('');
-    }
-    if (!find) {
+      setMember('')
+    } else if (!find) {
       setError('User not found');
     }
   };
+
 
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
@@ -58,7 +61,7 @@ function AddChannel({ id }) {
   };
 
   const handleDelete = () => {
-    localStorage.removeItem('members'.id);
+    memberList.pop()
   };
 
   return (
@@ -67,7 +70,7 @@ function AddChannel({ id }) {
         <input
           type='text'
           className='add-channel'
-          placeholder='Add channel'
+          placeholder='Channel Name'
           value={channel}
           onChange={(e) => setChannel(e.target.value)}
           onKeyPress={handleEnter}
@@ -75,7 +78,7 @@ function AddChannel({ id }) {
         {error}
         <input
           type='email'
-          placeholder='Add Member'
+          placeholder='Add Members'
           className='add-member'
           value={member}
           onKeyPress={handleEnter}
@@ -84,11 +87,11 @@ function AddChannel({ id }) {
           }}
         ></input>
         <div className='member-list'>
-          <div>{user.email}</div>
+          <div className='user-details'>{userDetails.email}</div>
           {memberList.map((prop) => {
             return (
               <div className='member-name'>
-                <div>{prop}</div>
+                <div>{prop.email}</div>
                 <i onClick={handleDelete} className='fa-solid fa-trash-can' />
               </div>
             );

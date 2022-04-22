@@ -891,7 +891,7 @@ body {
   overflow-y: scroll;
 }
 
-.member-name {
+.member-name, .user-details {
   background-color: #4a1051;
   color: white;
   padding: 10px;
@@ -1065,5 +1065,43 @@ textarea:focus::placeholder {
 
 .slack-main {
   position: fixed;
+}
+
+.member-list-modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.member-list-container {
+  background-color: #4a154b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  max-height: 50%;
+  margin: 10% auto;
+  max-width: 40%;
+  border-radius: 20px;
+  padding: 40px 20px;
+  color: white;
+}
+
+.top-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.fa-circle-xmark {
+  cursor: pointer;
 }
 /*# sourceMappingURL=output.css.map */

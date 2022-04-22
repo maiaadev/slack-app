@@ -15,23 +15,24 @@ export function DataContextProvider({ children }) {
   const [userList, setUserList] = useState([]);
   const [body, setBody] = useState('');
   const [addChannel, setAddChannel] = useState(false)
+  const [showMembers, setShowMembers] = useState(false)
 
 
   useEffect(() => {
-    if (channels !== undefined) {
-      setChannels(JSON.parse(localStorage.getItem('channels')));
-    } else {
+    if (localStorage.getItem('channels') === null) {
       setChannels([]);
+    } else {
+      setChannels(JSON.parse(localStorage.getItem('channels')));
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (userList !== undefined) {
-  //     setUserList(JSON.parse(localStorage.getItem('users')));
-  //   } else {
-  //     setUserList([])
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (localStorage.getItem('users') === null) {
+      setUserList([])
+    } else {
+      setUserList(JSON.parse(localStorage.getItem('users')));
+    }
+  }, [])
 
   return (
     <UseContext.Provider
@@ -48,6 +49,7 @@ export function DataContextProvider({ children }) {
         userList,
         body,
         addChannel,
+        showMembers,
         setUser,
         setAccountCreated,
         setHeader,
@@ -59,7 +61,8 @@ export function DataContextProvider({ children }) {
         setUsers,
         setUserList,
         setBody,
-        setAddChannel
+        setAddChannel,
+        setShowMembers
       }}
     >
       {children}
