@@ -113,7 +113,7 @@ function Main({ name, id, data }) {
         </div>
       </div>
       <Modal open={isOpenMembersModal}>
-        <MemberList />
+        <MemberList id={id}/>
       </Modal>
     </div>
   );

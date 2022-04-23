@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UseContext from '../../context/UseContext';
-import SearchBar from './SearchBar';
+import Modal from '../Modal';
+import SearchBar from './SearchBar'
 
 function NavBar() {
   const navigate = useNavigate();
-  const { setChannels, setUserList } = useContext(UseContext);
+  const { setChannels, setUserList, userDetails, isOpenSearchModal, setIsOpenSearchModal } = useContext(UseContext);
 
   const logOut = () => {
     setChannels([]);
@@ -29,12 +30,15 @@ function NavBar() {
         </div>
       </div>
       <div className='middle'>
-        <SearchBar />
+        <button onClick={() => {setIsOpenSearchModal(true)}}className='search-button'>Search </button>
       </div>
       <div className='side-right'>
         <i className='fa-solid fa-user-tie avatar' />
         <i onClick={logOut} className='fa-solid fa-arrow-right-from-bracket' />
       </div>
+      <Modal open={isOpenSearchModal}>
+        <SearchBar/>
+      </Modal>
     </div>
   );
 }

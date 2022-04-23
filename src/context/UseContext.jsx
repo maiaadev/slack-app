@@ -18,6 +18,8 @@ export function DataContextProvider({ children }) {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenMessageModal, setIsOpenMessageModal] = useState(false);
   const messageEndRef = useRef(null);
+  const [isOpenSearchModal, setIsOpenSearchModal] = useState(false)
+  const searchRef = useRef()
 
   useEffect(() => {
     if (localStorage.getItem('channels') === null) {
@@ -57,6 +59,8 @@ export function DataContextProvider({ children }) {
         isOpenMembersModal,
         messageEndRef,
         channelMembers,
+        isOpenSearchModal,
+        searchRef,
         setChannelMembers,
         setUser,
         setIsOpenCreateModal,
@@ -70,7 +74,8 @@ export function DataContextProvider({ children }) {
         setUserList,
         setBody,
         setIsOpenChannelModal,
-        setIsOpenMembersModal
+        setIsOpenMembersModal,
+        setIsOpenSearchModal
       }}
     >
       {children}

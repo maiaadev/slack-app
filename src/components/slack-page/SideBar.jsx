@@ -30,17 +30,7 @@ function SideBar() {
             <i className='fa-solid fa-pen-to-square' />
           </div>
         </div>
-        {userList &&
-          userList
-            .filter((item) => {
-              if (
-                search === '' ||
-                (item && item.toLowerCase().includes(search.toLowerCase()))
-              ) {
-                return item;
-              }
-            })
-            .map((prop) => {
+        {userList.map((prop) => {
               if (userList !== null) {
                 return (
                   <Link key={prop.id} to={`${prop.id}`} className='user-list'>

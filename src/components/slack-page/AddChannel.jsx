@@ -40,8 +40,9 @@ function AddChannel() {
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      addChannelMember();
-      setMember('');
+      handleAddChannel();
+      // addChannelMember();
+      // setMember('');
     }
   };
 

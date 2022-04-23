@@ -1,8 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { AddChannelMember, GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 
-function MemberList() {
-  const { setIsOpenMembersModal, channelMembers } = useContext(UseContext);
+function MemberList({id}) {
+  const { setIsOpenMembersModal, channelMembers, setChannelMembers, members } = useContext(UseContext);
+  const [addMemberInput, setAddMemberInput] = useState('');
+
+  const addMember = async () => {
+    const users = await GetUsers()
+    const user = users.find((user) => user.email == addMemberInput)
+    const data = {
+      id: id,
+      member_id: user.id
+    }
+    console.log(data)
+
+    const add = await AddChannelMember(data)
+    setChannelMembers([...members, add])
+  }
+
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      addMember();
+      setAddMemberInput('')
+    }
+  }
 
   return (
     <div className='member-list-modal'>
@@ -16,7 +38,7 @@ function MemberList() {
           />
         </div>
         <div className='member-list-title'>Channel Members</div>
-        {channelMembers.map((prop) => {
+        {channelMembers && channelMembers.map((prop) => {
           return (
             <div key={prop.id} className='channel-members'>
               {prop.email}
@@ -27,6 +49,11 @@ function MemberList() {
           type='text'
           className='add-channel-member'
           placeholder='Add Member'
+          value={addMemberInput}
+          onKeyPress={handleEnter}
+          onChange={(e) => {
+            setAddMemberInput(e.target.value);
+          }}
         />
       </div>
     </div>

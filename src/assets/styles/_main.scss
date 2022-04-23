@@ -12,3 +12,13 @@ body {
     user-select: none;
     overflow: hidden;
 }
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+}
