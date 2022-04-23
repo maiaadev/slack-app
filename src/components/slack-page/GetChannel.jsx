@@ -9,29 +9,30 @@ function GetChannels() {
     useContext(UseContext);
 
   return (
-    <div>
+    <div className='channel-container'>
       <div className='channel-dropdown'>
-        <div className='channel-title'>Channels</div>
-        <i
-          onClick={() => {
-            setIsOpenChannelModal(true);
-          }}
-          className='fa-solid fa-plus add-icon'
-        />
+        <div className='channel-title'>
+          <i className='fa-solid fa-caret-down'></i>Channels
+        </div>
       </div>
       <div className='channel-names'>
         <ul>
           {channels.map((prop) => {
-                return (
-                  <Link
-                    to={`${prop.id}`}
-                    key={prop.id}
-                    className='channel-list'
-                  >
-                    {prop.name}
-                  </Link>
-                );
-              })}
+            return (
+              <Link to={`${prop.id}`} key={prop.id} className='channel-list'>
+                <i className='fa-solid fa-lock'></i>
+                {prop.name}
+              </Link>
+            );
+          })}
+          <div
+            onClick={() => {
+              setIsOpenChannelModal(true);
+            }}
+            className='add-channels'
+          >
+            <i className='fa-solid fa-square-plus'></i>Add Channels
+          </div>
         </ul>
       </div>
       <Modal open={isOpenChannelModal}>

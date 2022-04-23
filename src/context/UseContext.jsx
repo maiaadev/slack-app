@@ -20,6 +20,7 @@ export function DataContextProvider({ children }) {
   const messageEndRef = useRef(null);
   const [isOpenSearchModal, setIsOpenSearchModal] = useState(false)
   const searchRef = useRef()
+  const avatar = "https://avatars.dicebear.com/api/micah/"
 
   useEffect(() => {
     if (localStorage.getItem('channels') === null) {
@@ -61,6 +62,7 @@ export function DataContextProvider({ children }) {
         channelMembers,
         isOpenSearchModal,
         searchRef,
+        avatar,
         setChannelMembers,
         setUser,
         setIsOpenCreateModal,

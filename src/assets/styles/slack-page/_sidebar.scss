@@ -1,88 +1,257 @@
 .slack-main {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   width: 100%;
   height: 100vh;
 }
 
 .sidebar {
-  background-color: rgb(74, 16, 81);
+  background-color: rgba(58, 0, 58, 0.962);
   color: white;
 }
 
 .sidebar-top {
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.2px solid rgb(122, 47, 130);
-  height: 70px;
+  border-bottom: 0.2px solid rgba(101, 36, 108, 0.826);
+  height: 50px;
   align-items: center;
-  margin: 0 20px;
+  padding: 0 20px;
+
+  &:hover {
+    background-color: rgba(33, 9, 34, 0.394);
+  }
+}
+
+.white-circle {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+
+  .fa-regular {
+    position: relative;
+    color: black;
+    font-size: 16px;
+    top: 20%;
+    left: 28%;
+  }
 }
 
 .workspace {
-  font-size: 25px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+
+  .fa-solid {
+    font-size: 12px;
+    margin-left: 7px;
+  }
 }
 
-.new-message {
-  color: black;
-  background-color: white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
+.sidebar-options-container {
+  .sidebar-options {
+    .sidebar-options-list {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.8);
+
+      .list-options {
+        display: flex;
+        align-items: center;
+        height: 25px;
+        padding: 14px 0;
+
+        &:hover:not(:last-child) {
+          background-color: rgba(33, 9, 34, 0.394);
+          cursor: pointer;
+        }
+
+        .fa-solid {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.6);
+          padding-left: 15px;
+        }
+      }
+
+      .list-options:last-child:hover {
+        color: white;
+      }
+
+      .option-1 {
+        margin-top: 15px;
+      }
+
+      .option-6 {
+        .fa-solid {
+          padding-left: 17px;
+        }
+      }
+
+      .option-3 {
+        .fa-solid {
+          padding-left: 13px;
+        }
+      }
+
+      .option-4 {
+        .fa-solid {
+          padding-left: 14px;
+        }
+      }
+
+      .option-name-1 {
+        padding-left: 3px;
+      }
+
+      .option-name-2 {
+        padding-left: 1px;
+      }
+
+      .option-name-4 {
+        padding-left: 2px;
+      }
+
+      .option-name-5 {
+        padding-left: 4px;
+      }
+
+      .option-name-6 {
+        padding-left: 7px;
+      }
+    }
+  }
 }
 
-.channels,
+.channels {
+  .channel-container {
+    display: flex;
+    flex-direction: column;
+
+    .channel-dropdown {
+      margin: 20px 0 0 15px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
+
+      .channel-title {
+        display: flex;
+        align-items: center;
+
+        .fa-solid {
+          padding-right: 20px;
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+
+    .channel-names {
+      margin: 5px 0 0 0;
+      height: 100px;
+      overflow: scroll;
+      .channel-list {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        padding: 5px 0 5px 30px;
+        align-items: center;
+        font-size: 15px;
+
+        &:hover {
+          background-color: rgba(33, 9, 34, 0.394);
+        }
+
+        &:focus {
+          background-color: rgb(4, 92, 143);
+          color: white;
+        }
+
+        .fa-solid {
+          font-size: 10px;
+          padding-right: 13px;
+        }
+      }
+    }
+  }
+
+  .add-channels {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    padding: 14px 0;
+
+    .fa-solid {
+      padding: 0 10px 0 28px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    &:hover {
+      background-color: rgba(33, 9, 34, 0.394);
+      cursor: pointer;
+    }
+  }
+}
+
 .direct-message {
-  display: flex;
-  margin: 30px;
-  flex-direction: column;
-}
+  .dmessage {
+    display: flex;
+    flex-direction: column;
 
-.channel-name,
-.add-channel,
-.dm,
-.channel-list,
-.user-list {
-  margin-top: 20px;
-  padding-left: 15px;
-  height: 25px;
-}
+    .dm-dropdown {
+      margin: 20px 0 0 15px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
 
-.channel-name:hover,
-.dm:hover {
-  background-color: rgba(51, 9, 56, 0.8);
-}
+      .fa-solid {
+        padding-right: 20px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
 
-.channel-list {
-  display: flex;
-  color: white;
-  text-decoration: none;
-  text-transform: capitalize;
-  cursor: pointer;
-}
+  }
+  .user-names {
+    margin: 5px 0 0 0;
+    height: 100px;
+    overflow: scroll;
 
-.channel-names {
-  height: 240px;
-  overflow-y: scroll;
-}
+    .image {
+      display: flex;
+      align-items: center;
 
-.channel-dropdown,
-.dm-dropdown {
-  font-weight: 600;
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
+      &:hover {
+        background-color: rgba(33, 9, 34, 0.394);
+        cursor: pointer;
+      }
 
-.create-message,
-.add-icon {
-  font-size: 14px;
-  cursor: pointer;
+      &:focus {
+        background-color: rgb(4, 92, 143);
+        color: white;
+      }
+
+      .avatar {
+        width: 20px;
+        height: 20px;
+        margin-left: 25px;
+        padding: 2px;
+        border-radius: 3px;
+      }
+    }
+
+
+    .user-list {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      padding: 5px 0 5px 10px;
+      align-items: center;
+      text-decoration: none;
+      font-size: 15px;
+
+      
+    }
+  }
 }
 
 .create-message-modal {
@@ -171,16 +340,6 @@
   letter-spacing: 0.5px;
 }
 
-.dmessage {
-  display: flex;
-  justify-content: space-between;
-}
-
-.user-list {
-  text-decoration: none;
-  color: white;
-}
-
 .add-channel-modal {
   height: 100vh;
   width: 100%;
@@ -266,7 +425,8 @@
   overflow-y: scroll;
 }
 
-.member-name, .user-details {
+.member-name,
+.user-details {
   background-color: rgb(74, 16, 81);
   color: white;
   padding: 10px;

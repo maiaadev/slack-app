@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,21 +10,22 @@ body {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Mulish', sans-serif;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   overflow: hidden;
+  font-weight: 300;
 }
 
 ::-webkit-scrollbar {
   background-color: transparent;
-  width: 5px;
+  width: 0.1px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e5e5e5;
+  background-color: transparent;
   border-radius: 10px;
 }
 
@@ -405,7 +407,7 @@ body {
   -ms-flex-line-pack: center;
       align-content: center;
   padding: 1px;
-  background-color: rgba(33, 9, 34, 0.9);
+  background-color: rgba(33, 9, 34, 0.945);
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -473,21 +475,39 @@ body {
           align-items: center;
 }
 
+.side-right .avatar {
+  width: 18px;
+  margin-right: 12px;
+}
+
+.side-right .fa-solid {
+  cursor: pointer;
+}
+
+.side-right .fa-solid:hover {
+  color: white;
+}
+
 .search-button {
   outline: none;
   border: none;
   width: 100%;
-  height: 33px;
+  height: 30px;
   margin: auto;
-  background-color: #5a3d5a;
+  background-color: rgba(90, 61, 90, 0.893);
   color: white;
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
   border-radius: 5px;
   padding-left: 1px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.search-button .fa-magnifying-glass {
+  padding: 0 10px;
+  font-size: 12px;
 }
 
 .search-button:hover {
-  border: 0.5px solid rgba(255, 255, 255, 0.7);
+  background-color: rgba(99, 68, 99, 0.893);
 }
 
 .right {
@@ -685,14 +705,14 @@ body {
 .slack-main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 3fr;
-      grid-template-columns: 1fr 3fr;
+  -ms-grid-columns: 1fr 5fr;
+      grid-template-columns: 1fr 5fr;
   width: 100%;
   height: 100vh;
 }
 
 .sidebar {
-  background-color: #4a1051;
+  background-color: rgba(58, 0, 58, 0.962);
   color: white;
 }
 
@@ -703,93 +723,265 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border-bottom: 0.2px solid #7a2f82;
-  height: 70px;
+  border-bottom: 0.2px solid rgba(101, 36, 108, 0.826);
+  height: 50px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 20px;
+  padding: 0 20px;
+}
+
+.sidebar-top:hover {
+  background-color: rgba(33, 9, 34, 0.394);
+}
+
+.white-circle {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
+
+.white-circle .fa-regular {
+  position: relative;
+  color: black;
+  font-size: 16px;
+  top: 20%;
+  left: 28%;
 }
 
 .workspace {
-  font-size: 25px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.new-message {
-  color: black;
-  background-color: white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.workspace .fa-solid {
+  font-size: 12px;
+  margin-left: 7px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .list-options {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 25px;
+  padding: 14px 0;
 }
 
-.channels,
-.direct-message {
+.sidebar-options-container .sidebar-options .sidebar-options-list .list-options:hover:not(:last-child) {
+  background-color: rgba(33, 9, 34, 0.394);
+  cursor: pointer;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .list-options .fa-solid {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 15px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .list-options:last-child:hover {
+  color: white;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-1 {
+  margin-top: 15px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-6 .fa-solid {
+  padding-left: 17px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-3 .fa-solid {
+  padding-left: 13px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-4 .fa-solid {
+  padding-left: 14px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-name-1 {
+  padding-left: 3px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-name-2 {
+  padding-left: 1px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-name-4 {
+  padding-left: 2px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-name-5 {
+  padding-left: 4px;
+}
+
+.sidebar-options-container .sidebar-options .sidebar-options-list .option-name-6 {
+  padding-left: 7px;
+}
+
+.channels .channel-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 30px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.channel-name,
-.add-channel,
-.dm,
-.channel-list,
-.user-list {
-  margin-top: 20px;
-  padding-left: 15px;
-  height: 25px;
+.channels .channel-container .channel-dropdown {
+  margin: 20px 0 0 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
 }
 
-.channel-name:hover,
-.dm:hover {
-  background-color: rgba(51, 9, 56, 0.8);
-}
-
-.channel-list {
+.channels .channel-container .channel-dropdown .channel-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.channels .channel-container .channel-dropdown .channel-title .fa-solid {
+  padding-right: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.channels .channel-container .channel-names {
+  margin: 5px 0 0 0;
+  height: 100px;
+  overflow: scroll;
+}
+
+.channels .channel-container .channel-names .channel-list {
   text-decoration: none;
-  text-transform: capitalize;
-  cursor: pointer;
-}
-
-.channel-names {
-  height: 240px;
-  overflow-y: scroll;
-}
-
-.channel-dropdown,
-.dm-dropdown {
-  font-weight: 600;
-  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 15px;
+  padding: 5px 0 5px 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
 }
 
-.create-message,
-.add-icon {
-  font-size: 14px;
+.channels .channel-container .channel-names .channel-list:hover {
+  background-color: rgba(33, 9, 34, 0.394);
+}
+
+.channels .channel-container .channel-names .channel-list:focus {
+  background-color: #045c8f;
+  color: white;
+}
+
+.channels .channel-container .channel-names .channel-list .fa-solid {
+  font-size: 10px;
+  padding-right: 13px;
+}
+
+.channels .add-channels {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25px;
+  padding: 14px 0;
+}
+
+.channels .add-channels .fa-solid {
+  padding: 0 10px 0 28px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.channels .add-channels:hover {
+  background-color: rgba(33, 9, 34, 0.394);
   cursor: pointer;
+}
+
+.direct-message .dmessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.direct-message .dmessage .dm-dropdown {
+  margin: 20px 0 0 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.direct-message .dmessage .dm-dropdown .fa-solid {
+  padding-right: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.direct-message .user-names {
+  margin: 5px 0 0 0;
+  height: 100px;
+  overflow: scroll;
+}
+
+.direct-message .user-names .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.direct-message .user-names .image:hover {
+  background-color: rgba(33, 9, 34, 0.394);
+  cursor: pointer;
+}
+
+.direct-message .user-names .image:focus {
+  background-color: #045c8f;
+  color: white;
+}
+
+.direct-message .user-names .image .avatar {
+  width: 20px;
+  height: 20px;
+  margin-left: 25px;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.direct-message .user-names .user-list {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 0 5px 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 .create-message-modal {
@@ -911,20 +1103,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-.dmessage {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.user-list {
-  text-decoration: none;
-  color: white;
-}
-
 .add-channel-modal {
   height: 100vh;
   width: 100%;
@@ -1043,7 +1221,8 @@ body {
   overflow-y: scroll;
 }
 
-.member-name, .user-details {
+.member-name,
+.user-details {
   background-color: #4a1051;
   color: white;
   padding: 10px;
@@ -1161,11 +1340,38 @@ textarea:focus::placeholder {
   font-size: 30px;
   font-weight: 600;
   letter-spacing: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-channel .avatar {
+  width: 50px;
+  height: 50px;
+  border: none;
 }
 
 .body {
   height: 520px;
   overflow-y: scroll;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.avatar-message {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
 .message {

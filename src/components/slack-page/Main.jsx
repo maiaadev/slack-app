@@ -19,8 +19,11 @@ function Main({ name, id, data }) {
     setIsOpenMembersModal,
     messageEndRef,
     setChannelMembers,
+    avatar,
+    user,
   } = useContext(UseContext);
   const receiverClass = data.email ? true : false;
+  const avatarUser = `${avatar}avion-${user.email}.svg`;
 
   useEffect(() => {
     setMessage([]);
@@ -76,7 +79,14 @@ function Main({ name, id, data }) {
     <div className='slack-page'>
       <div className='main'>
         <div className='channel-user'>
-          <div className='user-channel'>{name}</div>
+          <div className='user-channel'>
+            {/* <img
+              className='avatar'
+              src={receiverClass ? avatarUser : null}
+              alt=''
+            /> */}
+            {name}
+          </div>
           <div onClick={getMembers} className='members'>
             {receiverClass ? '' : 'Members'}
           </div>
@@ -86,13 +96,20 @@ function Main({ name, id, data }) {
             return (
               <div key={prop.id} className='message'>
                 <div className='flex'>
-                  <div className='sender'>{prop.sender.email}</div>
-                  <div className='messages'>{prop.body}</div>
+                  <img
+                    className='avatar-message'
+                    src={`${avatar}avion-${prop.sender.email}.svg`}
+                    alt=''
+                  />
+                  <div>
+                    <div className='sender'>{prop.sender.email}</div>
+                    <div className='messages'>{prop.body}</div>
+                  </div>
                 </div>
-                <div className='date'>
+                {/* <div className='date'>
                   <div>{prop.sender.created_at.substr(0, 10)}</div>
                   <div>{prop.sender.created_at.substr(11, 8)}</div>
-                </div>
+                </div> */}
               </div>
             );
           })}
@@ -113,7 +130,7 @@ function Main({ name, id, data }) {
         </div>
       </div>
       <Modal open={isOpenMembersModal}>
-        <MemberList id={id}/>
+        <MemberList id={id} />
       </Modal>
     </div>
   );

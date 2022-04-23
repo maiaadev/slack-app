@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 
 function NavBar() {
   const navigate = useNavigate();
-  const { setChannels, setUserList, userDetails, isOpenSearchModal, setIsOpenSearchModal } = useContext(UseContext);
+  const { setChannels, setUserList, userDetails, isOpenSearchModal, setIsOpenSearchModal, avatar, user } = useContext(UseContext);
 
   const logOut = () => {
     setChannels([]);
@@ -30,10 +30,10 @@ function NavBar() {
         </div>
       </div>
       <div className='middle'>
-        <button onClick={() => {setIsOpenSearchModal(true)}}className='search-button'>Search </button>
+        <button onClick={() => {setIsOpenSearchModal(true)}}className='search-button'><i class="fa-solid fa-magnifying-glass"></i>Search Workspace</button>
       </div>
       <div className='side-right'>
-        <i className='fa-solid fa-user-tie avatar' />
+        <img className='avatar' src={`${avatar}avion-${user.email}.svg`} alt="" />
         <i onClick={logOut} className='fa-solid fa-arrow-right-from-bracket' />
       </div>
       <Modal open={isOpenSearchModal}>
