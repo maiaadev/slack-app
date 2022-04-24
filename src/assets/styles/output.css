@@ -369,7 +369,7 @@ body {
 }
 
 .account-created .account-created-box .box .message .div .texts-modal {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 18px;
   text-align: center;
   width: 350px;
@@ -378,11 +378,11 @@ body {
 }
 
 .account-created .account-created-box .box .message .div .login {
-  margin-top: 30px;
+  margin-top: 25px;
   background-color: #2eb67d;
   color: white;
-  font-size: 20px;
-  padding: 10px 20px;
+  font-size: 18px;
+  padding: 10px 30px;
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
@@ -784,6 +784,11 @@ body {
   cursor: pointer;
 }
 
+.direct-message .user-names .slack-bot:focus {
+  background-color: #045c8f;
+  color: white;
+}
+
 .direct-message .user-names .slack-bot img {
   width: 15px;
   height: 15px;
@@ -800,14 +805,14 @@ body {
           align-items: center;
 }
 
+.direct-message .user-names .image:focus {
+  background-color: #045c8f !important;
+  color: white;
+}
+
 .direct-message .user-names .image:hover {
   background-color: rgba(33, 9, 34, 0.394);
   cursor: pointer;
-}
-
-.direct-message .user-names .image:focus {
-  background-color: #045c8f;
-  color: white;
 }
 
 .direct-message .user-names .image .avatar {

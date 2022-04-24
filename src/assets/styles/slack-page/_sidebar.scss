@@ -190,10 +190,13 @@
       background-color: rgba(33, 9, 34, 0.394);
       cursor: pointer;
     }
+
+    
   }
 }
 
 .direct-message {
+  
   .dmessage {
     display: flex;
     flex-direction: column;
@@ -229,6 +232,11 @@
         cursor: pointer;
       }
 
+      &:focus {
+        background-color: rgb(4, 92, 143);
+        color: white;
+      }
+
       img {
         width: 15px;
         height: 15px;
@@ -241,15 +249,18 @@
       display: flex;
       align-items: center;
 
+      &:focus {
+        background-color: rgb(4, 92, 143) !important;
+        color: white; 
+      }
+
       &:hover {
         background-color: rgba(33, 9, 34, 0.394);
         cursor: pointer;
       }
 
-      &:focus {
-        background-color: rgb(4, 92, 143);
-        color: white;
-      }
+     
+
       .avatar {
         width: 20px;
         height: 20px;
