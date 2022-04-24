@@ -19,16 +19,58 @@ function SearchBar() {
   return (
     <div className='search-modal'>
       <div className='search-container'>
-        <input
-          ref={searchRef}
-          className='search'
-          type='text'
-          placeholder='Type what you want to search for'
-          onChange={(e) => {
-            setSearch(e.target.value);
+        <i
+          onClick={() => {
+            setIsOpenSearchModal(false);
           }}
+          className='fa-solid fa-xmark close'
         />
-        <div className='search-options'>
+        <div className='top'>
+          <i className='fa-solid fa-magnifying-glass' />
+          <input
+            ref={searchRef}
+            className='search'
+            type='text'
+            placeholder='Type what you want to search for'
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />{' '}
+        </div>
+        <div className='main'>
+          <div className='find'>
+            <i className='fa-solid fa-list' />
+            Find in Workspace
+          </div>
+          <div className='search-options'>
+            <div className='top'>I'm looking for...</div>
+            <div className='bottom'>
+              <div className='option'>
+                <i className='fa-solid fa-comments' />
+                Messages
+              </div>
+              <div className='option'>
+                <i className='fa-solid fa-layer-group' />
+                Files
+              </div>
+              <div className='option'>
+                <i className='fa-solid fa-rectangle-list' />
+                Channels
+              </div>
+              <div className='option'>
+                <i className='fa-solid fa-user-group' />
+                People
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='bottom'>
+          <div className='text-bottom'>
+            Not the result you expected? <span>Give feedback</span> or{' '}
+            <span>learn more</span>
+          </div>
+        </div>
+        {/* <div className='search-options'>
           <div className='channels-search'>
             <div className='title'>
               <i className='fa-solid fa-hashtag'></i>Channels
@@ -107,6 +149,7 @@ function SearchBar() {
           className='fa-solid fa-xmark'
         />
         <i className='fa-solid fa-magnifying-glass search-icon' />
+      </div> */}
       </div>
     </div>
   );

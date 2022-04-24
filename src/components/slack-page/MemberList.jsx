@@ -9,6 +9,8 @@ function MemberList({ id, name }) {
     setChannelMembers,
     members,
     avatar,
+    search,
+    setSearch,
   } = useContext(UseContext);
   const [addMemberInput, setAddMemberInput] = useState('');
 
@@ -49,15 +51,15 @@ function MemberList({ id, name }) {
         </div>
         <div className='options-modal'>
           <div className='first'>
-            <i className='fa-solid fa-star'/>
-            <i className='fa-solid fa-angle-down'/>
+            <i className='fa-solid fa-star' />
+            <i className='fa-solid fa-angle-down' />
           </div>
           <div className='second'>
-            <i className='fa-solid fa-bell'/> Get Notifications for All
-            Messages <i class='fa-solid fa-angle-down'/>
+            <i className='fa-solid fa-bell' /> Get Notifications for All
+            Messages <i class='fa-solid fa-angle-down' />
           </div>
           <div className='third'>
-            <i className='fa-solid fa-phone'/> Start a call
+            <i className='fa-solid fa-phone' /> Start a call
           </div>
         </div>
         <div className='nav'>
@@ -68,23 +70,40 @@ function MemberList({ id, name }) {
         </div>
         <div className='main'>
           <div className='search'>
-            <i className='fa-solid fa-magnifying-glass'/>
-            <input type='text' placeholder='Find members' />
+            <i className='fa-solid fa-magnifying-glass' />
+            <input
+              type='text'
+              placeholder='Find members'
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
           </div>
           <div className='list-members'>
             {channelMembers &&
-              channelMembers.map((prop) => {
-                return (
-                  <div key={prop.id} className='channel-members'>
-                    <img src={`${avatar}avion-${prop.email}.svg`} alt='' />
-                    {prop.email}
-                  </div>
-                );
-              })}
+              channelMembers
+                .filter((item) => {
+                  if (
+                    search === '' ||
+                    (item.email &&
+                      item.email.toLowerCase().includes(search.toLowerCase()))
+                  ) {
+                    return item;
+                  }
+                })
+                .map((prop) => {
+                  return (
+                    <div key={prop.id} className='channel-members'>
+                      <img src={`${avatar}avion-${prop.email}.svg`} alt='' />
+                      {prop.email}
+                    </div>
+                  );
+                })}
           </div>
           <div className='add-member-modal'>
             <div className='container'>
-              <i className='fa-regular fa-square-plus'/>
+              <i className='fa-regular fa-square-plus' />
               <input
                 type='text'
                 className='add-channel-member'

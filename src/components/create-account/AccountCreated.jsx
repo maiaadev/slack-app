@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import team from '../../assets/images/support-team.png';
-import Logo from '../home-page/Logo';
 import logo from '../../assets/images/logo.png';
 
 function AccountCreated() {

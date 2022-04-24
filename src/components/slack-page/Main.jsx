@@ -126,7 +126,7 @@ function Main({ name, id, data }) {
                     </div>
                     <div className='work'>
                       {name}
-                      <span>Developer</span>
+                      <span>Software Engineer</span>
                     </div>
                   </div>
                 </div>
