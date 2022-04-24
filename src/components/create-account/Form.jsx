@@ -8,7 +8,7 @@ function Form() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const {setIsOpenCreateModal} = useContext(UseContext)
+  const { setIsOpenCreateModal } = useContext(UseContext);
 
   const createAccount = async (e) => {
     e.preventDefault();

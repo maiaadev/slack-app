@@ -4,6 +4,7 @@ import GetChannel from './GetChannel';
 import Modal from '../Modal';
 import { Link } from 'react-router-dom';
 import CreateMessage from './CreateMessage';
+import slackbot from '../../assets/images/slack-bot.png'
 
 function SideBar() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -66,6 +67,7 @@ function SideBar() {
           </div>
         </div>
         <div className='user-names'>
+          <Link to='slack-bot' className='slack-bot'><img src={slackbot} alt="" />Slackbot</Link>
           {userList.map((prop) => {
             if (userList !== null) {
               return (

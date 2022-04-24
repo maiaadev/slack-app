@@ -5,11 +5,11 @@ import UseContext from '../context/UseContext';
 import AccountCreated from '../components/create-account/AccountCreated';
 
 function CreateAccount() {
-  const { accountCreated } = useContext(UseContext);
+  const { isOpenCreateModal, setIsOpenCreateModal} = useContext(UseContext);
   return (
     <div>
       <Create />
-      <Modal open={accountCreated}>
+      <Modal open={isOpenCreateModal}>
         <AccountCreated />
       </Modal>
     </div>

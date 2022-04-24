@@ -32,7 +32,7 @@ function Form() {
       setIsLoggedIn(true);
       setEmail('');
       setPassword('');
-      navigate('/slack');
+      navigate('/slack/slack-bot');
     }
 
     if (channels !== undefined) {

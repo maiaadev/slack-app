@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 import { SendMessage } from '../../api/Fetch';
@@ -38,6 +38,13 @@ function CreateMessage() {
       setBody('');
       setErrorMessage('');
       setIsOpenMessageModal(false);
+    } else if (body == '' && find) {
+      localStorage.setItem('users', JSON.stringify([...userList, find]));
+      setUserList(JSON.parse(localStorage.getItem('users')));
+      navigate(`/slack/${find.id}`);
+      setUsers('');
+      setErrorMessage('');
+      setIsOpenMessageModal(false);
     }
   };
 
@@ -58,41 +65,74 @@ function CreateMessage() {
     }
   };
 
+  useEffect(() => {
+    setErrorMessage('');
+  }, [users]);
+
   return (
     <div className='create-message-modal'>
       <div className='create-message-container'>
-        <input
-          className='recipient'
-          type='email'
-          placeholder="Recipient's Email Address"
-          value={users}
-          onChange={(e) => {
-            setUsers(e.target.value);
-          }}
-          onKeyPress={handleEnter}
-        ></input>
-        <div className='error-container'>
-          <div className='error'>{errorMessage}</div>
-        </div>
-        <textarea
-          ref={inputRef}
-          className='textarea-modal'
-          placeholder='New Message'
-          value={body}
-          onChange={(e) => {
-            setBody(e.target.value);
-          }}
-          onKeyPress={handleEnter}
-        ></textarea>
-        <div className='options'>
-          <button className='send-message option'>Send Message</button>
-          <div
+        <div className='top'>
+          <div className='new-message'>New Message</div>
+          <i
             onClick={() => {
               setIsOpenMessageModal(false);
             }}
-            className='exit option'
-          >
-            Exit
+            className='fa-solid fa-xmark'
+          />
+        </div>
+        <div className='main'>
+          <div className='receiver'>
+            <div className='to'>To:</div>
+            <input
+              type='email'
+              placeholder='name@email.com'
+              value={users}
+              onChange={(e) => {
+                setUsers(e.target.value);
+              }}
+              onKeyPress={handleEnter}
+            />
+          </div>
+          <div className='error-message'>{errorMessage}</div>
+          <div className='textarea'>
+            <div className='container-top'>
+              <div className='top-icon'>
+                <i className='fa-solid fa-bold' />
+                <i className='fa-solid fa-italic' />
+                <i className='fa-solid fa-strikethrough' />
+                <i className='fa-solid fa-link' />
+                <i className='fa-solid fa-list-ol' />
+                <i className='fa-solid fa-list-ul' />
+                <i class='fa-solid fa-bars' />
+                <i className='fa-solid fa-code' />
+                <i className='fa-solid fa-laptop-code' />
+              </div>
+            </div>
+            <textarea
+              ref={inputRef}
+              className='textarea-modal'
+              placeholder='Start a new message'
+              value={body}
+              onChange={(e) => {
+                setBody(e.target.value);
+              }}
+              onKeyPress={handleEnter}
+            />
+            <div className='container-bottom'>
+              <div className='left'>
+                <i className='fa-solid fa-circle-plus' />
+                <i className='fa-solid fa-video' />
+                <i className='fa-solid fa-microphone' />
+                <i className='fa-regular fa-face-smile' />
+                <i className='fa-solid fa-at' />
+                <i className='fa-solid fa-font' />
+              </div>
+              <div className='right'>
+                <i onClick={handleSubmit} className='fa-solid fa-paper-plane' />
+                <i className='fa-solid fa-angle-down' />
+              </div>
+            </div>
           </div>
         </div>
       </div>

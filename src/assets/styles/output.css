@@ -284,117 +284,115 @@ body {
 
 .account-created {
   position: absolute;
-  top: 0;
-  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.account-created-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+.account-created .account-created-box {
+  background-color: #eeeeee;
+  max-height: 60%;
+  max-width: 60%;
+  width: 100%;
+  height: 100%;
+  margin: 10% auto;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px 20px;
+}
+
+.account-created .account-created-box .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.account-created .account-created-box .box img {
+  width: 550px;
+}
+
+.account-created .account-created-box .box .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
-  max-height: 55%;
   width: 100%;
-  max-width: 45%;
-  margin: 14% auto;
-  color: white;
-  background-color: #4a154b;
-  border-radius: 20px;
 }
 
-.account-created-message {
-  margin-top: 70px;
-  font-size: 20px;
-  margin-bottom: 70px;
-  font-weight: 500;
-  -webkit-animation: scale 1s forwards;
-          animation: scale 1s forwards;
-}
-
-@-webkit-keyframes scale {
-  to {
-    -webkit-transform: scale(2.5, 2.5);
-            transform: scale(2.5, 2.5);
-  }
-}
-
-@keyframes scale {
-  to {
-    -webkit-transform: scale(2.5, 2.5);
-            transform: scale(2.5, 2.5);
-  }
-}
-
-.fa-arrow-pointer {
-  font-size: 20px;
+.account-created .account-created-box .box .message .div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   width: 100%;
-  max-width: 60%;
-  -webkit-animation: pointer 1s infinite alternate;
-          animation: pointer 1s infinite alternate;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-@-webkit-keyframes pointer {
-  to {
-    -webkit-transform: translate(-140px, -50px);
-            transform: translate(-140px, -50px);
-    color: black;
-  }
+.account-created .account-created-box .box .message .div .welcome {
+  font-size: 35px;
+  font-weight: 800;
+  color: #1f1f1f;
 }
 
-@keyframes pointer {
-  to {
-    -webkit-transform: translate(-140px, -50px);
-            transform: translate(-140px, -50px);
-    color: black;
-  }
+.account-created .account-created-box .box .message .div .welcome img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
 }
 
-.account-created-button {
-  border: none;
-  background-color: #136c47;
+.account-created .account-created-box .box .message .div .texts-modal {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  width: 350px;
+  font-weight: 500;
+  color: #656565;
+}
+
+.account-created .account-created-box .box .message .div .login {
+  margin-top: 30px;
+  background-color: #2eb67d;
   color: white;
   font-size: 20px;
-  padding: 20px 80px;
-  border-radius: 5px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 500;
   cursor: pointer;
-  margin-bottom: 20px;
-  -webkit-animation: color 1s infinite alternate;
-          animation: color 1s infinite alternate;
+  border: 1px solid #2eb67d;
 }
 
-@-webkit-keyframes color {
-  to {
-    background-color: white;
-    color: black;
-  }
-}
-
-@keyframes color {
-  to {
-    background-color: white;
-    color: black;
-  }
+.account-created .account-created-box .box .message .div .login:hover {
+  border: 1px solid #2eb67d;
+  background-color: white;
+  color: #2eb67d;
 }
 
 .nav-bar {
@@ -939,8 +937,34 @@ body {
 
 .direct-message .user-names {
   margin: 5px 0 0 0;
-  height: 100px;
+  height: 140px;
   overflow: scroll;
+}
+
+.direct-message .user-names .slack-bot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 5px;
+  padding: 5px 0 5px 0;
+  text-decoration: none;
+}
+
+.direct-message .user-names .slack-bot:hover {
+  background-color: rgba(33, 9, 34, 0.394);
+  cursor: pointer;
+}
+
+.direct-message .user-names .slack-bot img {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  margin: 0 12px 0 28px;
 }
 
 .direct-message .user-names .image {
@@ -984,262 +1008,6 @@ body {
   font-size: 15px;
 }
 
-.create-message-modal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.create-message-container {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  max-width: 60%;
-  margin: auto;
-  background-color: #4a1051;
-  height: 100%;
-  max-height: 60%;
-  border-radius: 10px;
-}
-
-.recipient {
-  width: 100%;
-  height: 50px;
-  max-width: 80%;
-  outline: none;
-  border: none;
-  color: black;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  font-size: 16px;
-}
-
-.recipient:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.recipient:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-.recipient:focus::-ms-input-placeholder {
-  color: transparent;
-}
-
-.recipient:focus::placeholder {
-  color: transparent;
-}
-
-.textarea-modal {
-  max-width: 80%;
-  height: 100%;
-  max-height: 50%;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  margin-bottom: 20px;
-  resize: none;
-}
-
-.option {
-  border: none;
-  height: 50px;
-  width: 220px;
-  background-color: white;
-  border-radius: 10px;
-  font-size: 16px;
-  outline: none;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.option:hover {
-  background-color: #200623;
-  color: white;
-}
-
-.options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-  max-width: 45%;
-}
-
-.error-container {
-  width: 100%;
-  max-width: 78%;
-  margin-bottom: 20px;
-  color: #ff6767;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.add-channel-modal {
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-}
-
-.add-channel-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100%;
-  max-height: 55%;
-  width: 100%;
-  max-width: 45%;
-  margin: 14% auto;
-  color: white;
-  background-color: #4a154b;
-  border-radius: 20px;
-}
-
-.add-channel-container input:first-child {
-  width: 100%;
-  max-width: 90%;
-  margin-top: 10px;
-  background-color: white;
-  border: none;
-  outline: none;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-  height: 50px;
-  border-radius: 10px;
-  width: 100%;
-  padding-left: 10px;
-}
-
-.add-member {
-  width: 100%;
-  max-width: 90%;
-  margin-top: 10px;
-  background-color: white;
-  border: none;
-  outline: none;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-  height: 50px;
-  border-radius: 10px 10px 0 0;
-  width: 100%;
-  padding-left: 10px;
-}
-
-.add-channel-container input::-webkit-input-placeholder {
-  font-size: 16px;
-}
-
-.add-channel-container input:-ms-input-placeholder {
-  font-size: 16px;
-}
-
-.add-channel-container input::-ms-input-placeholder {
-  font-size: 16px;
-}
-
-.add-channel-container input::placeholder {
-  font-size: 16px;
-}
-
-.add-channel-container input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.add-channel-container input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-.add-channel-container input:focus::-ms-input-placeholder {
-  color: transparent;
-}
-
-.add-channel-container input:focus::placeholder {
-  color: transparent;
-}
-
-.add-channel-button {
-  outline: none;
-  border: none;
-  margin-top: 10px;
-  height: 50px;
-  width: 100%;
-  max-width: 20%;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.member-list {
-  height: 200px;
-  background-color: #f5baf5;
-  width: 100%;
-  max-width: 90%;
-  border-radius: 0 0 10px 10px;
-  padding: 15px;
-  color: black;
-  overflow-y: scroll;
-}
-
-.member-name,
-.user-details {
-  background-color: #4a1051;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 5px;
-}
-
-.fa-trash-can {
-  cursor: pointer;
-}
-
 .main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1251,72 +1019,231 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 10px 50px 10px;
+  height: 100vh;
+  padding-bottom: 10px;
 }
 
-textarea {
+.main .body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main .body .beginning-container {
+  border-bottom: 0.5px solid #bcbcbc;
+}
+
+.main .body .beginning-container .beginning {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.main .body .beginning-container .beginning .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 700;
+  margin-left: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .body .beginning-container .beginning .details .name {
+  margin-left: 10px;
+  line-height: 22px;
+}
+
+.main .body .beginning-container .beginning .details .name .online {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .body .beginning-container .beginning .details .fa-solid {
+  color: green;
+  font-size: 8px;
+  margin-left: 7px;
+}
+
+.main .body .beginning-container .beginning .details img {
+  width: 60px;
+  background-color: #611f69;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.main .body .beginning-container .beginning .details .work {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: 400;
+}
+
+.main .body .beginning-container .beginning .details .work span {
+  font-size: 13px;
+}
+
+.main .body .beginning-container .beginning .beginning-message {
+  font-size: 15px;
+  margin: 10px 20px 0 20px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.main .body .beginning-container .beginning .beginning-message span {
+  color: #16749d;
+}
+
+.main .body .beginning-container .beginning .beginning-message span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #075a7d;
+}
+
+.main .textarea {
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  margin: 0 20px 50px 20px;
   height: 150px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  padding: 20px;
-  outline: none;
-  border-radius: 10px 10px 0 0;
-  border: 1px solid grey;
+}
+
+.main .textarea .container-top {
+  height: 40px;
+  background-color: #f0f0f0;
+}
+
+.main .textarea .container-top .top-icon {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
+}
+
+.main .textarea .container-top .top-icon .fa-solid {
+  padding: 0 20px 0 0;
+}
+
+.main .textarea .container-top .top-icon .fa-solid:hover {
+  cursor: pointer;
+  color: #2c2c2c;
+}
+
+.main .textarea .container-top .top-icon .fa-solid:nth-child(4) {
+  border-left: 1px solid #b5b5b5;
+  border-right: 1px solid #b5b5b5;
+  padding: 0 10px;
+  margin-right: 15px;
+}
+
+.main .textarea .container-top .top-icon .fa-solid:nth-child(7) {
+  border-left: 1px solid #b5b5b5;
+  border-right: 1px solid #b5b5b5;
+  padding: 0 10px;
+  margin-right: 15px;
+}
+
+.main .textarea textarea {
+  border: none;
+  height: 75px;
   width: 100%;
+  outline: none;
+  font-family: 'Mulish', sans-serif;
+  padding: 15px;
   resize: none;
 }
 
-.text-area textarea::first-letter {
-  text-transform: capitalize;
+.main .textarea textarea::-webkit-input-placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
 }
 
-textarea::-webkit-input-placeholder::first-letter {
-  text-transform: capitalize;
+.main .textarea textarea:-ms-input-placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
 }
 
-textarea:-ms-input-placeholder::first-letter {
-  text-transform: capitalize;
+.main .textarea textarea::-ms-input-placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
 }
 
-textarea::-ms-input-placeholder::first-letter {
-  text-transform: capitalize;
+.main .textarea textarea::placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
 }
 
-textarea::placeholder::first-letter {
-  text-transform: capitalize;
-}
-
-textarea:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
-textarea:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-textarea:focus::-ms-input-placeholder {
-  color: transparent;
-}
-
-textarea:focus::placeholder {
-  color: transparent;
-}
-
-.send {
-  border: none;
-  background-color: #4a1051;
-  font-size: 16px;
-  color: white;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 0 0 10px 10px;
+.main .textarea .container-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
+  color: grey;
+  padding-left: 8px;
 }
 
-.send:hover {
-  background-color: white;
-  border: 1px solid #4a1a51;
-  color: #4a1051;
+.main .textarea .container-bottom .fa-solid,
+.main .textarea .container-bottom .fa-regular {
+  padding: 0 20px 10px 0;
+}
+
+.main .textarea .container-bottom .fa-solid:hover,
+.main .textarea .container-bottom .fa-regular:hover {
+  cursor: pointer;
+  color: #2c2c2c;
+}
+
+.main .textarea .container-bottom .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 10px;
+}
+
+.main .textarea .container-bottom .right .fa-solid {
+  padding-right: 10px;
+}
+
+.main .textarea .container-bottom .right .fa-solid:nth-child(2) {
+  font-size: 10px;
 }
 
 .channel-user {
@@ -1333,13 +1260,11 @@ textarea:focus::placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 10px;
 }
 
 .user-channel {
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 800;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1349,9 +1274,22 @@ textarea:focus::placeholder {
 }
 
 .user-channel .avatar {
-  width: 50px;
-  height: 50px;
+  width: 30px;
   border: none;
+  margin: 0 10px 0 20px;
+  background-color: #36c5f0;
+  border-radius: 5px;
+}
+
+.user-channel .fa-solid {
+  padding: 0 5px 0 20px;
+  font-size: 12px;
+}
+
+.user-channel .fa-solid:last-child {
+  color: #474747;
+  padding-left: 8px;
+  font-size: 10px;
 }
 
 .body {
@@ -1369,9 +1307,11 @@ textarea:focus::placeholder {
 }
 
 .avatar-message {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 40px;
+  margin: 0 10px 0 5px;
+  background-color: #efccd7;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .message {
@@ -1389,13 +1329,14 @@ textarea:focus::placeholder {
 }
 
 .sender {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
   color: rgba(33, 9, 34, 0.9);
 }
 
 .messages {
   margin-top: 5px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .date {
@@ -1419,21 +1360,36 @@ textarea:focus::placeholder {
 
 .members {
   cursor: pointer;
+  margin-right: 20px;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  border: 0.5px solid #c2c2c2;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.slack-main {
+.members .fa-solid {
+  font-size: 12px;
+  padding-right: 7px;
+}
+
+.members:hover {
+  background-color: #f1f1f1;
+}
+
+.main-page {
   position: fixed;
-}
-
-.member-list-modal {
-  position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.member-list-container {
-  background-color: #4a154b;
+.slack-bot-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1441,53 +1397,280 @@ textarea:focus::placeholder {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
-  max-height: 50%;
-  margin: 10% auto;
-  max-width: 40%;
-  border-radius: 20px;
-  padding: 40px;
-  color: white;
 }
 
-.top-modal {
+.slack-bot-container .slackbot-nav-bar {
+  -webkit-box-shadow: 0 0.5px 4px 0 #b0b0b0;
+          box-shadow: 0 0.5px 4px 0 #b0b0b0;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-top {
+  height: 50px;
+  padding: 13px 0 0 20px;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-top .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-top .name img {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-top .name .title {
+  color: black;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-top .name .fa-solid {
+  color: #2c2c2c;
+  font-size: 10px;
+  padding-left: 8px;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-bottom {
+  border-top: 0.5px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-bottom .container {
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #555555;
+  font-weight: 400;
+}
+
+.slack-bot-container .slackbot-nav-bar .nav-bar-bottom .container .fa-solid {
+  padding: 0 8px 0 20px;
+  font-size: 10px;
+}
+
+.slack-bot-container .main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  height: 100%;
+  overflow: scroll;
+}
+
+.slack-bot-container .main .greetings {
+  font-size: 30px;
+  font-weight: 800;
+  padding-left: 20px;
+}
+
+.slack-bot-container .main .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 15fr;
+      grid-template-columns: 1fr 15fr;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.slack-bot-container .main .grid img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.slack-bot-container .main .grid .body {
+  display: block;
+  font-size: 17px;
+  font-weight: 400;
+  height: 140px;
+}
+
+.slack-bot-container .main .grid .body span {
+  color: #16749d;
+}
+
+.slack-bot-container .main .grid .body span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #075a7d;
+}
+
+.slack-bot-container .main .textarea {
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  margin: 0 20px 33px 20px;
+  height: 150px;
+}
+
+.slack-bot-container .main .textarea .container-top {
+  height: 40px;
+  background-color: #f0f0f0;
+}
+
+.slack-bot-container .main .textarea .container-top .top-icon {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
+}
+
+.slack-bot-container .main .textarea .container-top .top-icon .fa-solid {
+  padding: 0 20px 0 0;
+}
+
+.slack-bot-container .main .textarea .container-top .top-icon .fa-solid:hover {
+  cursor: pointer;
+  color: #2c2c2c;
+}
+
+.slack-bot-container .main .textarea .container-top .top-icon .fa-solid:nth-child(4) {
+  border-left: 1px solid #b5b5b5;
+  border-right: 1px solid #b5b5b5;
+  padding: 0 10px;
+  margin-right: 15px;
+}
+
+.slack-bot-container .main .textarea .container-top .top-icon .fa-solid:nth-child(7) {
+  border-left: 1px solid #b5b5b5;
+  border-right: 1px solid #b5b5b5;
+  padding: 0 10px;
+  margin-right: 15px;
+}
+
+.slack-bot-container .main .textarea textarea {
+  border: none;
+  height: 75px;
+  resize: none;
+  padding: 15px;
+}
+
+.slack-bot-container .main .textarea textarea::-webkit-input-placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.slack-bot-container .main .textarea textarea:-ms-input-placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.slack-bot-container .main .textarea textarea::-ms-input-placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.slack-bot-container .main .textarea textarea::placeholder {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.slack-bot-container .main .textarea .container-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  color: grey;
+  padding-left: 8px;
+}
+
+.slack-bot-container .main .textarea .container-bottom .fa-solid,
+.slack-bot-container .main .textarea .container-bottom .fa-regular {
+  padding: 0 20px 10px 0;
+}
+
+.slack-bot-container .main .textarea .container-bottom .fa-solid:hover,
+.slack-bot-container .main .textarea .container-bottom .fa-regular:hover {
+  cursor: pointer;
+  color: #2c2c2c;
+}
+
+.slack-bot-container .main .textarea .container-bottom .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 10px;
+}
+
+.slack-bot-container .main .textarea .container-bottom .right .fa-solid {
+  padding-right: 10px;
+}
+
+.slack-bot-container .main .textarea .container-bottom .right .fa-solid:nth-child(2) {
+  font-size: 10px;
+}
+
+.slack-bot-container .main .textarea img {
+  width: 20px;
+}
+
+.member-list-modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.member-list-modal .member-list-container {
+  max-width: 35%;
+  height: 100%;
+  max-height: 85%;
+  margin: 3% auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.member-list-modal .member-list-container .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.fa-circle-xmark {
-  cursor: pointer;
-  font-size: 20px;
-  padding: 0;
-}
-
-.fa-circle-xmark:hover {
-  color: #f5baf5;
-}
-
-.member-list-title {
-  font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.channel-members {
-  font-size: 20px;
-  margin: 5px;
-  background-color: #f5baf5;
-  color: black;
-  font-weight: 400;
-  height: 40px;
-  padding: 5px 10px;
-  width: 70%;
-  border-radius: 10px;
+.member-list-modal .member-list-container .top .channel-name {
+  font-size: 25px;
+  font-weight: 700;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1496,30 +1679,379 @@ textarea:focus::placeholder {
           align-items: center;
 }
 
-.add-channel-member {
-  height: 40px;
-  width: 70%;
-  margin: 5px;
-  border-radius: 10px;
+.member-list-modal .member-list-container .top .channel-name .fa-solid {
+  padding-right: 7px;
+  font-size: 15px;
+}
+
+.member-list-modal .member-list-container .top .fa-xmark {
+  padding: 0;
+}
+
+.member-list-modal .member-list-container .top .fa-xmark:hover {
+  cursor: pointer;
+}
+
+.member-list-modal .member-list-container .options-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin-top: 15px;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+  color: #343434;
+}
+
+.member-list-modal .member-list-container .options-modal .fa-solid {
+  padding-right: 8px;
+}
+
+.member-list-modal .member-list-container .options-modal .first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 0.5px solid #ababab;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0 10px;
+  margin-right: 7px;
+}
+
+.member-list-modal .member-list-container .options-modal .second {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 0.5px solid #ababab;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0 10px;
+  margin-right: 7px;
+}
+
+.member-list-modal .member-list-container .options-modal .second .fa-solid:nth-child(2) {
+  padding-left: 8px;
+}
+
+.member-list-modal .member-list-container .options-modal .third {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 0.5px solid #ababab;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.member-list-modal .member-list-container .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  border-bottom: 1px solid #b6b6b6;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.member-list-modal .member-list-container .nav .about {
+  margin-left: 10px;
+  padding: 0 35px 5px 0;
+  font-weight: 600;
+}
+
+.member-list-modal .member-list-container .nav .members-modal {
+  border-bottom: 2px solid #025768;
+  padding-bottom: 5px;
+}
+
+.member-list-modal .member-list-container .nav .members-modal span {
+  font-weight: 600;
+}
+
+.member-list-modal .member-list-container .main {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.member-list-modal .member-list-container .main .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #c7c7c7;
+  height: 35px;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 10px;
+  color: grey;
+}
+
+.member-list-modal .member-list-container .main .search input {
   outline: none;
   border: none;
-  font-size: 16px;
+  height: 30px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.member-list-modal .member-list-container .main .search .fa-solid {
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+.member-list-modal .member-list-container .main .search:hover {
+  border: 1px solid grey;
+}
+
+.member-list-modal .member-list-container .main .list-members {
+  margin-top: 15px;
+  height: 400px;
+  overflow: scroll;
+}
+
+.member-list-modal .member-list-container .main .list-members img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.member-list-modal .member-list-container .main .list-members .channel-members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.member-list-modal .member-list-container .main .add-member-modal {
+  width: 100%;
+}
+
+.member-list-modal .member-list-container .main .add-member-modal .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #c7c7c7;
+  height: 35px;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 10px;
+  color: grey;
 }
 
-.add-channel-member:focus::-webkit-input-placeholder {
+.member-list-modal .member-list-container .main .add-member-modal .container input {
+  outline: none;
+  border: none;
+  height: 30px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.member-list-modal .member-list-container .main .add-member-modal .container .fa-regular {
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+.member-list-modal .member-list-container .main .add-member-modal .container:hover {
+  border: 1px solid grey;
+}
+
+.create-message-modal {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100%;
+}
+
+.create-message-modal .create-message-container {
+  max-width: 50%;
+  max-height: 60%;
+  background-color: white;
+  margin: 10% auto;
+  border-radius: 10px;
+}
+
+.create-message-modal .create-message-container .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #b5b5b5;
+  height: 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgba(58, 0, 58, 0.962);
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.create-message-modal .create-message-container .top .fa-solid:hover {
+  cursor: pointer;
+}
+
+.create-message-modal .create-message-container .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.create-message-modal .create-message-container .main .error-message {
+  font-size: 12px;
+  color: red;
+  font-weight: 500;
+  margin: 8px 20px 0 20px;
+}
+
+.create-message-modal .create-message-container .main .receiver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #b5b5b5;
+  height: 50px;
+  padding: 0 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  font-weight: 400;
+}
+
+.create-message-modal .create-message-container .main .receiver input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  width: 100%;
+  height: 38px;
+  font-size: 16px;
+}
+
+.create-message-modal .create-message-container .main .receiver input::-webkit-input-placeholder {
+  color: #bababa;
+}
+
+.create-message-modal .create-message-container .main .receiver input:-ms-input-placeholder {
+  color: #bababa;
+}
+
+.create-message-modal .create-message-container .main .receiver input::-ms-input-placeholder {
+  color: #bababa;
+}
+
+.create-message-modal .create-message-container .main .receiver input::placeholder {
+  color: #bababa;
+}
+
+.create-message-modal .create-message-container .main .textarea {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.add-channel-modal {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.add-channel-modal .add-channel-container {
+  background-color: white;
+  max-height: 20%;
+  max-width: 30%;
+  margin: 10% auto;
+  border-radius: 10px;
+}
+
+.add-channel-modal .add-channel-container .top {
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgba(58, 0, 58, 0.962);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  border-radius: 10px 10px 0 0;
+}
+
+.add-channel-modal .add-channel-container .top .fa-solid:hover {
+  cursor: pointer;
+}
+
+.add-channel-modal .add-channel-container .top .title {
+  font-size: 20px;
+}
+
+.add-channel-modal .add-channel-container .main {
+  margin-top: 20px;
+}
+
+.add-channel-modal .add-channel-container .main input {
+  max-width: 90%;
+  margin: 0 5%;
+  height: 40px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  outline: none;
+}
+
+.add-channel-modal .add-channel-container .main input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-.add-channel-member:focus:-ms-input-placeholder {
+.add-channel-modal .add-channel-container .main input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-.add-channel-member:focus::-ms-input-placeholder {
+.add-channel-modal .add-channel-container .main input:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-.add-channel-member:focus::placeholder {
+.add-channel-modal .add-channel-container .main input:focus::placeholder {
   color: transparent;
 }
 /*# sourceMappingURL=output.css.map */

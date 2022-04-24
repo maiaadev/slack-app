@@ -7,6 +7,7 @@ import SlackPage from './pages/SlackPage';
 import { useContext } from 'react';
 import UseContext from './context/UseContext';
 import Main from './components/slack-page/Main';
+import Slackbot from './components/slack-page/Slackbot';
 
 function App() {
   const { channels, userList } = useContext(UseContext);
@@ -17,6 +18,7 @@ function App() {
         <Route path='/sign-in' element={<LoginPage />} />
         <Route path='/sign-up' element={<CreateAccount />} />
         <Route path='/slack' element={<SlackPage />}>
+          <Route path='slack-bot' element={<Slackbot/>}/>
           {channels &&
             channels.map((prop) => {
               return (

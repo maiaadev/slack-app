@@ -38,9 +38,7 @@ export function DataContextProvider({ children }) {
     }
   }, [])
 
-  useEffect(() => {
-    messageEndRef.current?.scrollIntoView();
-  }, [message]);
+ 
 
   return (
     <UseContext.Provider

@@ -1,198 +1,283 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding-bottom: 10px;
+
+  .body {
+    height: 100vh;
     display: flex;
+    justify-content: flex-end;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 0 10px 50px 10px;
-}
 
-textarea {
+    .beginning-container {
+      border-bottom: 0.5px solid rgb(188, 188, 188);
+
+      .beginning {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        .details {
+          display: flex;
+          font-weight: 700;
+          margin-left: 20px;
+          align-items: center;
+
+          .name {
+            margin-left: 10px;
+            line-height: 22px;
+
+            .online {
+                display: flex
+            ; align-items: center;
+
+            }
+          }
+
+          .fa-solid {
+            color: green;
+            font-size: 8px;
+            margin-left: 7px;
+          }
+
+          img {
+            width: 60px;
+            background-color: #611f69;
+            padding: 5px;
+            border-radius: 10px;
+          }
+
+          .work {
+            display: flex;
+            flex-direction: column;
+            font-weight: 400;
+
+            span {
+              font-size: 13px;
+            }
+          }
+        }
+
+        .beginning-message {
+          font-size: 15px;
+          margin: 10px 20px 0 20px;
+          font-weight: 400;
+          line-height: 25px;
+
+          span {
+            color: rgb(22, 116, 157);
+        
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                color: rgb(7, 90, 125);
+            }
+        }
+        }
+      }
+    }
+  }
+
+  .textarea {
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    margin: 0 20px 50px 20px;
     height: 150px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    padding: 20px;
-    outline: none;
-    border-radius: 10px 10px 0 0;
-    border: 1px solid grey;
-    width: 100%;
-    resize: none;
-}
 
-.text-area textarea::first-letter {
-    text-transform: capitalize;
-}
+    .container-top {
+      height: 40px;
+      background-color: rgb(240, 240, 240);
 
-textarea::placeholder::first-letter {
-    text-transform: capitalize;
-}
+      .top-icon {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 14px;
+        color: grey;
+        cursor: pointer;
 
-textarea:focus::placeholder {
-    color: transparent;
-}
+        .fa-solid {
+          padding: 0 20px 0 0;
 
-.send {
-    border: none;
-    background-color: rgb(74, 16, 81);
-    font-size: 16px;
-    color: white;
-    // position: absolute;
-    // bottom: 9%;
-    // left: 93%;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 0 0 10px 10px;
-    width: 100%;
-}
+          &:hover {
+            cursor: pointer;
+            color: rgb(44, 44, 44);
+          }
+        }
 
-.send:hover {
-    background-color: white;
-    border: 1px solid rgb(74, 26, 81);
-    color:rgb(74, 16, 81)
+        .fa-solid:nth-child(4) {
+          border-left: 1px solid rgb(181, 181, 181);
+          border-right: 1px solid rgb(181, 181, 181);
+
+          padding: 0 10px;
+          margin-right: 15px;
+        }
+        .fa-solid:nth-child(7) {
+          border-left: 1px solid rgb(181, 181, 181);
+          border-right: 1px solid rgb(181, 181, 181);
+
+          padding: 0 10px;
+          margin-right: 15px;
+        }
+      }
+    }
+
+    textarea {
+      border: none;
+      height: 75px;
+      width: 100%;
+      outline: none;
+      font-family: 'Mulish', sans-serif;
+      padding: 15px;
+      resize: none;
+
+      &::placeholder {
+        color: rgb(128, 128, 128);
+        font-weight: 300;
+        font-size: 15px;
+      }
+    }
+
+    .container-bottom {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      color: grey;
+      padding-left: 8px;
+
+      .fa-solid,
+      .fa-regular {
+        padding: 0 20px 10px 0;
+
+        &:hover {
+          cursor: pointer;
+          color: rgb(44, 44, 44);
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        .fa-solid {
+          padding-right: 10px;
+
+          &:nth-child(2) {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .channel-user {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    box-shadow: 0px 1px rgb(220, 220, 220);
-    height: 70px;
-    align-items: center;
-    margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  box-shadow: 0px 1px rgb(220, 220, 220);
+  height: 70px;
+  align-items: center;
 }
 
 .user-channel {
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
 
-    .avatar {
-        width: 50px;
-        height: 50px;
-        border: none;
-    }
+  .avatar {
+    width: 30px;
+    border: none;
+    margin: 0 10px 0 20px;
+    background-color: #36c5f0;
+    border-radius: 5px;
+  }
+
+  .fa-solid {
+    padding: 0 5px 0 20px;
+    font-size: 12px;
+  }
+
+  .fa-solid:last-child {
+    color: rgb(71, 71, 71);
+    padding-left: 8px;
+    font-size: 10px;
+  }
 }
 
-
 .body {
-    height: 520px;
-    overflow-y: scroll;
+  height: 520px;
+  overflow-y: scroll;
 }
 
 .flex {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .avatar-message {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+  width: 40px;
+  margin: 0 10px 0 5px;
+  background-color: rgb(239, 204, 215);
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .message {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    margin: 15px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin: 15px;
+  align-items: center;
 }
 
 .sender {
-    font-weight: 600;
-    color: rgba(33, 9, 34, 0.9);
+  font-weight: 700;
+  font-size: 16px;
+  color: rgba(33, 9, 34, 0.9);
 }
 
 .messages {
-    margin-top: 5px;
-    font-size: 18px;
+  margin-top: 5px;
+  font-size: 15px;
 }
 .date {
-    color: grey;
-    font-size: 12px;
-    height: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  color: grey;
+  font-size: 12px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .members {
-    cursor: pointer;
+  cursor: pointer;
+  margin-right: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  border: 0.5px solid rgb(194, 194, 194);
+  padding: 5px 10px;
+  border-radius: 5px;
+
+  .fa-solid {
+    font-size: 12px;
+    padding-right: 7px;
+  }
+
+  &:hover {
+    background-color: rgb(241, 241, 241);
+  }
 }
 
-.slack-main {
-    position: fixed;
-}
-
-.member-list-modal {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.member-list-container {
-    background-color: rgb(74, 21, 75);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-height: 50%;
-    margin: 10% auto;
-    max-width: 40%;
-    border-radius: 20px;
-    padding: 40px;
-    color: white;
-}
-
-.top-modal {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.fa-circle-xmark{
-    cursor: pointer;
-    font-size: 20px;
-    padding: 0;
-
-}
-
-.fa-circle-xmark:hover {
-    color: rgb(245, 186, 245);
-}
-
-.member-list-title {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.channel-members {
-    font-size: 20px;
-    margin: 5px;
-    background-color: rgb(245, 186, 245);
-    color: black;
-    font-weight: 400;
-    height: 40px;
-    padding: 5px 10px;
-    width: 70%;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.add-channel-member {
-    height: 40px;
-    width: 70%;
-    margin: 5px;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    font-size: 16px;
-    padding-left: 10px;
-}
-
-.add-channel-member:focus::placeholder {
-    color: transparent
+.main-page {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
 }
