@@ -1053,6 +1053,8 @@ body {
   font-family: 'Mulish', sans-serif;
   padding: 15px;
   resize: none;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .main .textarea textarea::-webkit-input-placeholder {
@@ -1710,6 +1712,7 @@ body {
   margin-top: 17px;
   height: 400px;
   overflow: scroll;
+  width: 100%;
 }
 
 .member-list-modal .member-list-container .main .list-members img {
@@ -2158,7 +2161,7 @@ body {
 }
 
 .loading {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2169,24 +2172,23 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-.wp {
-  position: relative;
-  margin: auto;
+.loading .logo {
   width: 75px;
   height: 75px;
   -webkit-transform: rotate(-16deg);
           transform: rotate(-16deg);
 }
 
-.rot {
+.one {
   position: relative;
   left: 10px;
   top: 10px;
 }
 
-.rot::before {
+.one::before {
   content: ' ';
   position: absolute;
   top: 0;
@@ -2200,7 +2202,7 @@ body {
           animation: blue 1.5s infinite;
 }
 
-.rot::after {
+.one::after {
   content: ' ';
   position: absolute;
   top: 20px;
@@ -2306,13 +2308,13 @@ body {
   }
 }
 
-.tor {
+.two {
   position: relative;
   left: 20px;
   top: 2px;
 }
 
-.tor::before {
+.two::before {
   content: ' ';
   position: absolute;
   top: 0;
@@ -2326,7 +2328,7 @@ body {
           animation: green 1.5s infinite;
 }
 
-.tor::after {
+.two::after {
   content: ' ';
   position: absolute;
   top: 0;

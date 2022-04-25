@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import {
   GetChannelMembers,
   GetUsers,
@@ -25,26 +25,10 @@ function Main({ name, id, data }) {
     setIsLoading,
     channelMembers,
   } = useContext(UseContext);
-  const receiverClass = data.email ? true : false;
+  const receiverClass = data.email
   const avatarUser = `${avatar}avion-${data.email}.svg`;
   const user = JSON.parse(localStorage.getItem('user'));
   const ownerID = data.owner_id == user.id;
-
-  useEffect(() => {
-    messageEndRef.current?.scrollIntoView();
-  }, [message]);
-
-  useEffect(() => {
-    setMessage([]);
-  }, [id]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const interval = setInterval(() => {
-      getMessage();
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [id]);
 
   const getMessage = async () => {
     const data = {
@@ -88,6 +72,22 @@ function Main({ name, id, data }) {
     );
     setChannelMembers(members);
   };
+
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView();
+  }, [message]);
+
+  useEffect(() => {
+    setMessage([]);
+  }, [id]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const interval = setInterval(() => {
+      getMessage();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [id]);
 
   return (
     <div className='slack-page'>

@@ -8,7 +8,7 @@ function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const {setUser, setChannels, channels } = useContext(UseContext);
+  const { setUser, setChannels, channels } = useContext(UseContext);
   const navigate = useNavigate();
 
   const logIn = async (e) => {

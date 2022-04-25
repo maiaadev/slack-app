@@ -3,23 +3,22 @@ import { createContext, useEffect, useState, useRef } from 'react';
 const UseContext = createContext({});
 
 export function DataContextProvider({ children }) {
-  const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState('');
+  const [search, setSearch] = useState('');
+  const [users, setUsers] = useState('');
+  const [body, setBody] = useState('');
   const [header, setHeader] = useState([]);
   const [channels, setChannels] = useState([]);
   const [message, setMessage] = useState([]);
-  const [search, setSearch] = useState('');
-  const [recipient, setRecipient] = useState('');
-  const [users, setUsers] = useState('');
   const [userList, setUserList] = useState([]);
   const [channelMembers, setChannelMembers] = useState([]);
-  const [body, setBody] = useState('');
+  const [isLoading, setIsLoading] = useState(true)
   const [isOpenChannelModal, setIsOpenChannelModal] = useState(false)
   const [isOpenMembersModal, setIsOpenMembersModal] = useState(false)
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenMessageModal, setIsOpenMessageModal] = useState(false);
-  const messageEndRef = useRef(null);
   const [isOpenSearchModal, setIsOpenSearchModal] = useState(false)
+  const messageEndRef = useRef(null);
   const searchRef = useRef()
   const avatar = "https://avatars.dicebear.com/api/micah/"
 
@@ -37,10 +36,7 @@ export function DataContextProvider({ children }) {
     } else {
       setUserList(JSON.parse(localStorage.getItem('users')));
     }
-    // setIsLoading(true)
   }, [])
-
- 
 
   return (
     <UseContext.Provider
@@ -52,7 +48,6 @@ export function DataContextProvider({ children }) {
         search,
         message,
         isOpenMessageModal,
-        recipient,
         users,
         userList,
         body,
@@ -73,7 +68,6 @@ export function DataContextProvider({ children }) {
         setSearch,
         setMessage,
         setIsOpenMessageModal,
-        setRecipient,
         setUsers,
         setUserList,
         setBody,

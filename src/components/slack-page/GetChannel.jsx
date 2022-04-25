@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import UseContext from '../../context/UseContext';
 import { Link } from 'react-router-dom';
 import Modal from '../Modal';
 import AddChannel from './AddChannel';
 
 function GetChannels() {
-  const { channels, search, isOpenChannelModal, setIsOpenChannelModal } =
+  const { channels, isOpenChannelModal, setIsOpenChannelModal } =
     useContext(UseContext);
 
   return (

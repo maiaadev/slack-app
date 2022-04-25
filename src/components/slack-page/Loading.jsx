@@ -3,9 +3,9 @@ import React from 'react';
 function Loading() {
   return (
     <div className="loading">
-    <div className='wp'>
-      <div className='rot'></div>
-      <div className='tor'></div>
+    <div className='logo'>
+      <div className='one'></div>
+      <div className='two'></div>
     </div></div>
   );
 }

@@ -35,7 +35,7 @@ function SearchBar() {
       <div className='search-container'>
         <i
           onClick={() => {
-            setIsOpenSearchModal(false)
+            setIsOpenSearchModal(false);
             setSearch('');
           }}
           className='fa-solid fa-xmark close'
@@ -84,10 +84,10 @@ function SearchBar() {
         ) : (
           <div className='open'>
             <div className='channel-container'>
-            <div className='option'>
-                  <i className='fa-solid fa-rectangle-list' />
-                  Channels
-                </div>
+              <div className='option'>
+                <i className='fa-solid fa-rectangle-list' />
+                Channels
+              </div>
               <div className='channel-list-container'>
                 {channels &&
                   channels
@@ -120,10 +120,10 @@ function SearchBar() {
             </div>
 
             <div className='user-list-container'>
-            <div className='option'>
-                  <i className='fa-solid fa-user-group' />
-                  People
-                </div>
+              <div className='option'>
+                <i className='fa-solid fa-user-group' />
+                People
+              </div>
               {userList &&
                 userList
                   .filter((item) => {
@@ -160,86 +160,6 @@ function SearchBar() {
             <span>learn more</span>
           </div>
         </div>
-        {/* <div className='search-options'>
-          <div className='channels-search'>
-            <div className='title'>
-              <i className='fa-solid fa-hashtag'></i>Channels
-            </div>
-            <div className='channel-container'>
-              <div className='channel-list-container'>
-                {channels &&
-                  channels
-                    .filter((item) => {
-                      if (
-                        search === '' ||
-                        (item.name &&
-                          item.name
-                            .toLowerCase()
-                            .includes(search.toLowerCase()))
-                      ) {
-                        return item;
-                      }
-                    })
-                    .map((prop) => {
-                      return (
-                        <Link
-                          onClick={() => {
-                            setIsOpenSearchModal(false);
-                          }}
-                          to={`${prop.id}`}
-                          key={prop.id}
-                          className='channel-list'
-                        >
-                          {prop.name}
-                        </Link>
-                      );
-                    })}
-              </div>
-            </div>
-          </div>
-          <div className='users'>
-            <div className='title'>
-              <i className='fa-solid fa-user-group'></i>People
-            </div>
-            <div className='user-list-container'>
-              {userList &&
-                userList
-                  .filter((item) => {
-                    if (
-                      search === '' ||
-                      (item &&
-                        item.email.toLowerCase().includes(search.toLowerCase()))
-                    ) {
-                      return item;
-                    }
-                  })
-                  .map((prop) => {
-                    if (userList !== null) {
-                      return (
-                        <Link
-                          onClick={() => {
-                            setIsOpenSearchModal(false);
-                          }}
-                          key={prop.id}
-                          to={`${prop.id}`}
-                          className='user-list'
-                        >
-                          {prop.email}
-                        </Link>
-                      );
-                    }
-                  })}
-            </div>
-          </div>
-        </div>
-        <i
-          onClick={() => {
-            setIsOpenSearchModal(false);
-          }}
-          className='fa-solid fa-xmark'
-        />
-        <i className='fa-solid fa-magnifying-glass search-icon' />
-      </div> */}
       </div>
     </div>
   );

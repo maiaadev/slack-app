@@ -47,7 +47,7 @@ function Slackbot() {
               <i className='fa-solid fa-link' />
               <i className='fa-solid fa-list-ol' />
               <i className='fa-solid fa-list-ul' />
-              <i class="fa-solid fa-bars"></i>
+              <i className='fa-solid fa-bars' />
               <i className='fa-solid fa-code' />
               <i className='fa-solid fa-laptop-code' />
             </div>
@@ -55,15 +55,15 @@ function Slackbot() {
           <textarea placeholder='Message Slackbot' />
           <div className='container-bottom'>
             <div className='left'>
-            <i class="fa-solid fa-circle-plus"></i>
+              <i class='fa-solid fa-circle-plus' />
               <i className='fa-solid fa-video' />
               <i className='fa-solid fa-microphone' />
               <i className='fa-regular fa-face-smile' />
               <i className='fa-solid fa-at' />
-              <i class="fa-solid fa-font"></i>
+              <i className='fa-solid fa-font' />
             </div>
             <div className='right'>
-            <i class="fa-solid fa-paper-plane"></i>
+              <i className='fa-solid fa-paper-plane' />
               <i className='fa-solid fa-angle-down' />
             </div>
           </div>

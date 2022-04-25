@@ -5,7 +5,7 @@ import UseContext from '../context/UseContext';
 import AccountCreated from '../components/create-account/AccountCreated';
 
 function CreateAccount() {
-  const { isOpenCreateModal, setIsOpenCreateModal} = useContext(UseContext);
+  const { isOpenCreateModal } = useContext(UseContext);
   return (
     <div>
       <Create />

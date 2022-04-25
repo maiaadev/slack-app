@@ -1,19 +1,19 @@
 .loading {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  .logo {
+    width: 75px;
+    height: 75px;
+    transform: rotate(-16deg);
+  }
 }
 
-.wp {
-  position: relative;
-  margin: auto;
-  width: 75px;
-  height: 75px;
-  transform: rotate(-16deg);
-}
-.rot {
+.one {
   position: relative;
   left: 10px;
   top: 10px;
@@ -85,7 +85,7 @@
   }
 }
 
-.tor {
+.two {
   position: relative;
   left: 20px;
   top: 2px;

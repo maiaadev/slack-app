@@ -7,7 +7,6 @@ import CreateMessage from './CreateMessage';
 import slackbot from '../../assets/images/slack-bot.png';
 
 function SideBar() {
-  const user = JSON.parse(localStorage.getItem('user'));
   const { isOpenMessageModal, setIsOpenMessageModal, userList, avatar } =
     useContext(UseContext);
 

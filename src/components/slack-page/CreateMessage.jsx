@@ -14,20 +14,20 @@ function CreateMessage() {
     body,
     setBody,
   } = useContext(UseContext);
-  const inputRef = useRef();
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const inputRef = useRef()
 
   const handleSubmit = async (e) => {
     const get = await GetUsers();
     const find = get.find((item) => item.email == users);
     if (find) {
-      inputRef.current.focus();
       setErrorMessage('');
     } else {
       setErrorMessage('User not found');
+      return
     }
-    if (body !== '' && find) {
+    if (body && find) {
       localStorage.setItem('users', JSON.stringify([...userList, find]));
       setUserList(JSON.parse(localStorage.getItem('users')));
       sendMessage(find.id);
@@ -36,7 +36,7 @@ function CreateMessage() {
       setBody('');
       setErrorMessage('');
       setIsOpenMessageModal(false);
-    } else if (body == '' && find) {
+    } else  {
       localStorage.setItem('users', JSON.stringify([...userList, find]));
       setUserList(JSON.parse(localStorage.getItem('users')));
       navigate(`/slack/${find.id}`);

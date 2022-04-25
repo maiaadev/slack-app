@@ -9,7 +9,6 @@ function NavBar() {
   const {
     setChannels,
     setUserList,
-    userDetails,
     isOpenSearchModal,
     setIsOpenSearchModal,
     avatar,
@@ -17,9 +16,7 @@ function NavBar() {
 
   const [toggle, setToggle] = useState(false)
   const user = JSON.parse(localStorage.getItem('user'));
-
-
-
+  
   const logOut = () => {
     setChannels([]);
     setUserList([]);

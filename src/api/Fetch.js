@@ -14,10 +14,10 @@ async function Register(data) {
 
 async function LogIn(data) {
   try {
-    const baby = await axios.post('/auth/sign_in', data, {
+    const login = await axios.post('/auth/sign_in', data, {
       headers: { 'Content-type': 'application/json' },
     });
-    return [baby.headers, baby.data.data];
+    return [login.headers, login.data.data];
   } catch (error) {
     return [error.response.data.errors, error.response.status];
   }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AddChannelMember, GetChannelMembers, GetUsers } from '../../api/Fetch';
+import { AddChannelMember, GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
 import Loading from './Loading';
 
@@ -8,7 +8,6 @@ function MemberList({ id, name, ownerID }) {
     setIsOpenMembersModal,
     channelMembers,
     setChannelMembers,
-    members,
     avatar,
     search,
     setSearch,
@@ -30,14 +29,13 @@ function MemberList({ id, name, ownerID }) {
         member_id: user.id,
       };
       const add = await AddChannelMember(data);
-      console.log(add);
       if (add.errors) {
         setError(add.errors);
         setIsLoading(false);
         return;
       }
       setIsLoading(false);
-      setChannelMembers([members, add]);
+      setChannelMembers([channelMembers, add]);
     } else {
       setIsLoading(false);
       setError('User not found');
