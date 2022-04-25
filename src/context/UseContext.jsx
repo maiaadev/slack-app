@@ -3,6 +3,7 @@ import { createContext, useEffect, useState, useRef } from 'react';
 const UseContext = createContext({});
 
 export function DataContextProvider({ children }) {
+  const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState('');
   const [header, setHeader] = useState([]);
   const [channels, setChannels] = useState([]);
@@ -36,6 +37,7 @@ export function DataContextProvider({ children }) {
     } else {
       setUserList(JSON.parse(localStorage.getItem('users')));
     }
+    // setIsLoading(true)
   }, [])
 
  
@@ -61,6 +63,8 @@ export function DataContextProvider({ children }) {
         isOpenSearchModal,
         searchRef,
         avatar,
+        isLoading,
+        setIsLoading,
         setChannelMembers,
         setUser,
         setIsOpenCreateModal,

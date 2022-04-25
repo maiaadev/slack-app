@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AddChannelMember, GetChannelMembers, GetUsers } from '../../api/Fetch';
 import UseContext from '../../context/UseContext';
+import Loading from './Loading';
 
-function MemberList({ id, name }) {
+function MemberList({ id, name, ownerID }) {
   const {
     setIsOpenMembersModal,
     channelMembers,
@@ -13,22 +14,43 @@ function MemberList({ id, name }) {
     setSearch,
   } = useContext(UseContext);
   const [addMemberInput, setAddMemberInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    setError('');
+  }, [addMemberInput]);
 
   const addMember = async () => {
     const users = await GetUsers();
     const user = users.find((user) => user.email == addMemberInput);
-    const data = {
-      id: id,
-      member_id: user.id,
-    };
-    console.log(data);
-
-    const add = await AddChannelMember(data);
-    setChannelMembers([...members, add]);
+    if (user) {
+      const data = {
+        id: id,
+        member_id: user.id,
+      };
+      const add = await AddChannelMember(data);
+      console.log(add);
+      if (add.errors) {
+        setError(add.errors);
+        setIsLoading(false);
+        return;
+      }
+      setIsLoading(false);
+      setChannelMembers([members, add]);
+    } else {
+      setIsLoading(false);
+      setError('User not found');
+    }
   };
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [channelMembers]);
 
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
+      setIsLoading(true);
       addMember();
       setAddMemberInput('');
     }
@@ -44,7 +66,8 @@ function MemberList({ id, name }) {
           </div>
           <i
             onClick={() => {
-              setIsOpenMembersModal(false);
+              setIsOpenMembersModal(false)
+              setSearch('');
             }}
             className='fa-solid fa-xmark'
           />
@@ -72,7 +95,7 @@ function MemberList({ id, name }) {
           <div className='search'>
             <i className='fa-solid fa-magnifying-glass' />
             <input
-              type='text'
+              type='email'
               placeholder='Find members'
               value={search}
               onChange={(e) => {
@@ -81,7 +104,9 @@ function MemberList({ id, name }) {
             />
           </div>
           <div className='list-members'>
-            {channelMembers &&
+            {isLoading && <Loading />}
+            {!isLoading &&
+              channelMembers &&
               channelMembers
                 .filter((item) => {
                   if (
@@ -95,27 +120,34 @@ function MemberList({ id, name }) {
                 .map((prop) => {
                   return (
                     <div key={prop.id} className='channel-members'>
-                      <img src={`${avatar}avion-${prop.email}.svg`} alt='' />
+                      <img
+                        key={prop.id}
+                        src={`${avatar}avion-${prop.email}.svg`}
+                        alt=''
+                      />
                       {prop.email}
                     </div>
                   );
                 })}
           </div>
-          <div className='add-member-modal'>
-            <div className='container'>
-              <i className='fa-regular fa-square-plus' />
-              <input
-                type='text'
-                className='add-channel-member'
-                placeholder='Add Member'
-                value={addMemberInput}
-                onKeyPress={handleEnter}
-                onChange={(e) => {
-                  setAddMemberInput(e.target.value);
-                }}
-              />
+          {ownerID && (
+            <div className='add-member-modal'>
+              <div className='container'>
+                <i className='fa-regular fa-square-plus' />
+                <input
+                  type='text'
+                  className='add-channel-member'
+                  placeholder='Add Member'
+                  value={addMemberInput}
+                  onKeyPress={handleEnter}
+                  onChange={(e) => {
+                    setAddMemberInput(e.target.value);
+                  }}
+                />
+              </div>
+              <div className='error'>{error}</div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

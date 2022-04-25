@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import {
   GetChannelMembers,
   GetUsers,
@@ -8,6 +8,7 @@ import {
 import UseContext from '../../context/UseContext';
 import MemberList from './MemberList';
 import Modal from '../Modal';
+import Loading from './Loading';
 
 function Main({ name, id, data }) {
   const {
@@ -20,11 +21,14 @@ function Main({ name, id, data }) {
     messageEndRef,
     setChannelMembers,
     avatar,
-    user,
+    isLoading,
+    setIsLoading,
     channelMembers,
   } = useContext(UseContext);
   const receiverClass = data.email ? true : false;
   const avatarUser = `${avatar}avion-${data.email}.svg`;
+  const user = JSON.parse(localStorage.getItem('user'));
+  const ownerID = data.owner_id == user.id;
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();
@@ -35,6 +39,7 @@ function Main({ name, id, data }) {
   }, [id]);
 
   useEffect(() => {
+    setIsLoading(true);
     const interval = setInterval(() => {
       getMessage();
     }, 1000);
@@ -49,6 +54,7 @@ function Main({ name, id, data }) {
     const messages = await RetrieveMessage(data);
 
     setMessage(messages);
+    setIsLoading(false);
   };
 
   const sendMessage = async () => {
@@ -94,7 +100,7 @@ function Main({ name, id, data }) {
               <i className='fa-solid fa-lock' />
             )}
             {name}
-            <i class='fa-solid fa-angle-down'></i>
+            <i className='fa-solid fa-angle-down' />
           </div>
 
           <div
@@ -107,14 +113,15 @@ function Main({ name, id, data }) {
               ''
             ) : (
               <div className='members'>
-                <i class='fa-solid fa-user-group'></i>
+                <i className='fa-solid fa-user-group' />
                 {channelMembers.length}
               </div>
             )}
           </div>
         </div>
         <div className='body'>
-          {receiverClass && (
+          {isLoading && <Loading />}
+          {receiverClass && !isLoading && (
             <div className='beginning-container'>
               <div className='beginning'>
                 <div className='details'>
@@ -139,7 +146,6 @@ function Main({ name, id, data }) {
               </div>
             </div>
           )}
-        
           {message.map((prop) => {
             return (
               <div key={prop.id} className='message'>
@@ -154,10 +160,6 @@ function Main({ name, id, data }) {
                     <div className='messages'>{prop.body}</div>
                   </div>
                 </div>
-                {/* <div className='date'>
-                  <div>{prop.sender.created_at.substr(0, 10)}</div>
-                  <div>{prop.sender.created_at.substr(11, 8)}</div>
-                </div> */}
               </div>
             );
           })}
@@ -172,7 +174,7 @@ function Main({ name, id, data }) {
               <i className='fa-solid fa-link' />
               <i className='fa-solid fa-list-ol' />
               <i className='fa-solid fa-list-ul' />
-              <i class='fa-solid fa-bars'></i>
+              <i className='fa-solid fa-bars' />
               <i className='fa-solid fa-code' />
               <i className='fa-solid fa-laptop-code' />
             </div>
@@ -187,12 +189,12 @@ function Main({ name, id, data }) {
           />
           <div className='container-bottom'>
             <div className='left'>
-              <i class='fa-solid fa-circle-plus'></i>
+              <i className='fa-solid fa-circle-plus' />
               <i className='fa-solid fa-video' />
               <i className='fa-solid fa-microphone' />
               <i className='fa-regular fa-face-smile' />
               <i className='fa-solid fa-at' />
-              <i class='fa-solid fa-font'></i>
+              <i className='fa-solid fa-font' />
             </div>
             <div className='right'>
               <i onClick={sendMessage} className='fa-solid fa-paper-plane' />
@@ -202,7 +204,7 @@ function Main({ name, id, data }) {
         </div>
       </div>
       <Modal open={isOpenMembersModal}>
-        <MemberList id={id} name={name} />
+        <MemberList id={id} name={name} ownerID={ownerID} />
       </Modal>
     </div>
   );

@@ -86,10 +86,11 @@ body {
 
 .slogan {
   color: white;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   margin-bottom: 40px;
   max-width: 90%;
+  letter-spacing: 1px;
 }
 
 .globe {
@@ -486,6 +487,47 @@ body {
   color: white;
 }
 
+.side-right .toggle {
+  position: absolute;
+  background-color: rgba(58, 0, 58, 0.962);
+  color: white;
+  top: 5%;
+  right: 0;
+  height: 50px;
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 0 0 5px;
+  font-weight: 600;
+  -webkit-animation: slide 1s ease-in-out 2 alternate forwards;
+          animation: slide 1s ease-in-out 2 alternate forwards;
+}
+
+@-webkit-keyframes slide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 150px;
+  }
+}
+
+@keyframes slide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 150px;
+  }
+}
+
 .search-button {
   outline: none;
   border: none;
@@ -777,6 +819,7 @@ body {
   margin-top: 5px;
   padding: 5px 0 5px 0;
   text-decoration: none;
+  outline: none;
 }
 
 .direct-message .user-names .slack-bot:hover {
@@ -1153,10 +1196,14 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 20px;
-  margin: 15px;
+  padding: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.message:hover {
+  background-color: #f3f3f3;
 }
 
 .sender {
@@ -1720,6 +1767,13 @@ body {
   border: 1px solid grey;
 }
 
+.member-list-modal .member-list-container .main .add-member-modal .error {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #a60000;
+  font-weight: 400;
+}
+
 .create-message-modal {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
@@ -2034,6 +2088,49 @@ body {
   padding-right: 10px;
 }
 
+.search-modal .search-container .open {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.search-modal .search-container .open .option {
+  margin: 20px 0 15px 40px;
+  background-color: #c8ecff;
+  border: 0.5px solid #ebf8ff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 80%;
+}
+
+.search-modal .search-container .open .option .fa-solid {
+  padding-right: 10px;
+}
+
+.search-modal .search-container .open .channel-list,
+.search-modal .search-container .open .user-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 40px;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  background-color: #ebf8ff;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  width: 80%;
+}
+
+.search-modal .search-container .open .channel-list:hover,
+.search-modal .search-container .open .user-list:hover {
+  background-color: #c2c2c2;
+}
+
 .search-modal .search-container .bottom {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2060,8 +2157,23 @@ body {
   text-decoration: underline;
 }
 
+.loading {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .wp {
   position: relative;
+  margin: auto;
   width: 75px;
   height: 75px;
   -webkit-transform: rotate(-16deg);

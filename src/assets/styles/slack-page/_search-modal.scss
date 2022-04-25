@@ -16,16 +16,15 @@
     flex-direction: column;
 
     .close {
-        position: absolute;
-        left: 75%;
-        top: 3%;
-        color: rgb(179, 179, 179);
-        cursor: pointer;
+      position: absolute;
+      left: 75%;
+      top: 3%;
+      color: rgb(179, 179, 179);
+      cursor: pointer;
 
-        &:hover {
-            color: grey;
-        }
-        
+      &:hover {
+        color: grey;
+      }
     }
 
     .top {
@@ -113,6 +112,44 @@
         }
       }
     }
+
+    .open {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .option {
+        margin: 20px 0 15px 40px;
+        background-color: rgb(200, 236, 255);
+        border: 0.5px solid rgb(235, 248, 255);
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 600;
+        width: 80%;
+
+        .fa-solid {
+          padding-right: 10px;
+        }
+      }
+
+      .channel-list,
+      .user-list {
+        display: flex;
+        margin: 10px 40px;
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+        background-color: rgb(235, 248, 255);
+        padding: 10px 10px;
+        border-radius: 5px;
+        font-weight: 600;
+        width: 80%;
+
+        &:hover {
+          background-color: rgb(194, 194, 194);
+        }
+      }
+    }
     .bottom {
       display: flex;
       height: 50px;
@@ -128,8 +165,8 @@
           color: rgb(21, 110, 179);
 
           &:hover {
-              cursor: pointer;
-              text-decoration: underline;
+            cursor: pointer;
+            text-decoration: underline;
           }
         }
       }

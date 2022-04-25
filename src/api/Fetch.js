@@ -65,7 +65,8 @@ async function AddChannelMember(data) {
   const add = await axios.post('/channel/add_member', data, {
     headers: Token(),
   });
-  return add;
+  console.log(add.data)
+  return add.data;
 }
 
 async function GetUsers() {

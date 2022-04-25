@@ -2,10 +2,11 @@ import React from 'react';
 
 function Loading() {
   return (
-    <div class='wp'>
-      <div class='rot'></div>
-      <div class='tor'></div>
-    </div>
+    <div className="loading">
+    <div className='wp'>
+      <div className='rot'></div>
+      <div className='tor'></div>
+    </div></div>
   );
 }
 

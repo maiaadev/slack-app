@@ -21,12 +21,10 @@ function CreateMessage() {
   const handleSubmit = async (e) => {
     const get = await GetUsers();
     const find = get.find((item) => item.email == users);
-    console.log('find', find);
     if (find) {
       inputRef.current.focus();
       setErrorMessage('');
     } else {
-      console.log(body);
       setErrorMessage('User not found');
     }
     if (body !== '' && find) {
@@ -69,6 +67,10 @@ function CreateMessage() {
     setErrorMessage('');
   }, [users]);
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <div className='create-message-modal'>
       <div className='create-message-container'>
@@ -77,6 +79,8 @@ function CreateMessage() {
           <i
             onClick={() => {
               setIsOpenMessageModal(false);
+              setBody('');
+              setUsers('');
             }}
             className='fa-solid fa-xmark'
           />
@@ -85,6 +89,7 @@ function CreateMessage() {
           <div className='receiver'>
             <div className='to'>To:</div>
             <input
+              ref={inputRef}
               type='email'
               placeholder='name@email.com'
               value={users}
@@ -104,13 +109,12 @@ function CreateMessage() {
                 <i className='fa-solid fa-link' />
                 <i className='fa-solid fa-list-ol' />
                 <i className='fa-solid fa-list-ul' />
-                <i class='fa-solid fa-bars' />
+                <i className='fa-solid fa-bars' />
                 <i className='fa-solid fa-code' />
                 <i className='fa-solid fa-laptop-code' />
               </div>
             </div>
             <textarea
-              ref={inputRef}
               className='textarea-modal'
               placeholder='Start a new message'
               value={body}
