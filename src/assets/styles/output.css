@@ -515,7 +515,7 @@ body {
     width: 0;
   }
   to {
-    width: 150px;
+    width: 250px;
   }
 }
 
@@ -524,7 +524,7 @@ body {
     width: 0;
   }
   to {
-    width: 150px;
+    width: 250px;
   }
 }
 
@@ -1399,6 +1399,7 @@ body {
   border-radius: 10px;
   margin: 0 20px 33px 20px;
   height: 150px;
+  overflow: hidden;
 }
 
 .slack-bot-container .main .textarea .container-top {
@@ -1529,7 +1530,7 @@ body {
 .member-list-modal .member-list-container {
   max-width: 35%;
   height: auto;
-  max-height: 85%;
+  max-height: 75%;
   margin: 3% auto;
   background-color: white;
   border-radius: 10px;
@@ -1872,6 +1873,7 @@ body {
 .create-message-modal .create-message-container .main .textarea {
   margin-top: 20px;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .add-channel-modal {
@@ -2113,6 +2115,11 @@ body {
   padding-right: 10px;
 }
 
+.search-modal .search-container .open .channel-list-container, .search-modal .search-container .open .user-list-container {
+  height: 260px;
+  overflow: scroll;
+}
+
 .search-modal .search-container .open .channel-list,
 .search-modal .search-container .open .user-list {
   display: -webkit-box;
@@ -2122,7 +2129,7 @@ body {
   text-decoration: none;
   color: black;
   font-size: 15px;
-  background-color: #ebf8ff;
+  background-color: #f0f0f0;
   padding: 10px 10px;
   border-radius: 5px;
   font-weight: 600;

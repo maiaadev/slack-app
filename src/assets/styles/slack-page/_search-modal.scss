@@ -132,6 +132,11 @@
         }
       }
 
+      .channel-list-container, .user-list-container {
+        height: 260px;
+        overflow: scroll;
+      }
+
       .channel-list,
       .user-list {
         display: flex;
@@ -139,7 +144,7 @@
         text-decoration: none;
         color: black;
         font-size: 15px;
-        background-color: rgb(235, 248, 255);
+        background-color: rgb(240, 240, 240);
         padding: 10px 10px;
         border-radius: 5px;
         font-weight: 600;

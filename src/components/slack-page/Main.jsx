@@ -59,19 +59,19 @@ function Main({ name, id, data }) {
       sendMessage();
     }
   };
-
-  useEffect(() => {
-    getMembers();
-  }, [id, channelMembers]);
-
+  
   const getMembers = async () => {
     const users = await GetUsers();
     const get = await GetChannelMembers(id);
     const members = get.map((member) =>
-      users.find((user) => user.id == member.user_id)
+    users.find((user) => user.id == member.user_id)
     );
     setChannelMembers(members);
   };
+  
+  useEffect(() => {
+    getMembers();
+  }, [id, channelMembers]);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView();

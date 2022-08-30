@@ -35,7 +35,7 @@ function Form() {
       navigate('/slack/slack-bot');
     }
 
-    if (channels !== undefined) {
+    if (channels !== null || undefined) {
       setChannels(JSON.parse(localStorage.getItem('channels')));
     } else {
       setChannels([]);
