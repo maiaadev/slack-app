@@ -7,19 +7,19 @@
 >> - Designed a loader that matches the Slack App using CSS animations.
 >> - Implemented dynamic routing using React Router DOM.
 
-![Home Page](assets/images/screenshots/home.png)
+![Home Page](src/assets/images/screenshots/home.png)
 
-![Log In Page](assets/images/screenshots/login.png)
+![Log In Page](src/assets/images/screenshots/login.png)
 
-![Slackbot](assets/images/screenshots/slackbot.png)
+![Slackbot](src/assets/images/screenshots/slackbot.png)
 
-![Channel Page](assets/images/screenshots/channel.png) 
+![Channel Page](src/assets/images/screenshots/channel.png) 
 
-![Direct Message Page](assets/images/screenshots/dm.png)
+![Direct Message Page](src/assets/images/screenshots/dm.png)
 
-![Create New Message Page](assets/images/screenshots/new.png)
+![Create New Message Page](src/assets/images/screenshots/new.png)
 
-![Channel Details Page](assets/images/screenshots/members.png) 
+![Channel Details Page](src/assets/images/screenshots/members.png) 
 
 >> ###### Sources:
 >> - ReactJS [Documentation](https://reactjs.org/docs/getting-started.html)
